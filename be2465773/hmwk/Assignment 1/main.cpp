@@ -27,7 +27,9 @@ using namespace std;
         float findMedian  (int arr[], int &arrSize);   // Function for Ch. 6 #7
         void sortArray (int* &arr, int arrSize, bool &isSorted);   // Sorts the array
         void solution9_11(int arr[], int arrSize);
+        void solution9_10(int arr[], int arrSize);
         void solution9_2();
+        void solution9_12(int arr[], int arrSize);
 //Main
 int main() 				
 {
@@ -112,6 +114,24 @@ int main()
                                 cout	<< endl;
                                 solution9_2();
                                 break;
+                        case '8':
+                                cout	<< endl;
+                                if (!isArray) { 
+                                    cout << "No array in memory!\n"; 
+                                    localPause();
+                                    break;
+                                }
+                                solution9_10(arr, arrSize);
+                                break;
+                        case '9':
+                                cout    << endl;
+                                if (!isArray) { 
+                                    cout << "No array in memory!\n"; 
+                                    localPause();
+                                    break;
+                                }
+                                solution9_12(arr, arrSize);
+                                break;
                         case '0':
                                 cout	<< endl;
                                 isExit = true;
@@ -144,8 +164,8 @@ void displayMenu (char& choice)
                         << "[5] - Take the median of the array" << endl
                         << "[6] - Programming Challenge 9-11" << endl
                         << "[7] - Programming Challenge 9-2 and 9-3" << endl
-                //        << "[8] - " << endl
-                //        << "[9] - " << endl                        
+                        << "[8] - Programming Challenge 9-10" << endl
+                        << "[9] - Programming Challenge 9-12" << endl                        
                         << "[0] - Exit the program." << endl
                         << endl;
 		cin	>> choice;
@@ -157,8 +177,8 @@ void displayMenu (char& choice)
 			|| choice == '5' 
 			|| choice == '6' 
 			|| choice == '7' 
-			|| choice == '8'/*
-                        || choice == '9' */
+			|| choice == '8'
+                        || choice == '9' 
                         || choice == '0'
                         )
 		{
@@ -363,6 +383,7 @@ void sortArray(int* &arr, int arrSize, bool &isSorted)  // linear sort
 
 void solution9_11(int arr[], int arrSize)
 {
+
     int i = 0;
     int n = 0;
     int newSize = 0;
@@ -387,11 +408,13 @@ void solution9_11(int arr[], int arrSize)
             << "\npass to the main function"
             << endl;
     localPause();
+     
 }
 
 void solution9_2() 
 {
-
+    cout << "This solution is available as a separate file.\n";
+    /*
     int *testscores;
     int i;
     int lowestScore=100;
@@ -429,5 +452,62 @@ void solution9_2()
     }
     average = (total - lowestScore) / (numScores - 1);
     cout << "\nThe final average is " << average << endl;
-    
+    */
+}
+
+void solution9_10(int arr[], int arrSize)
+{
+    int i = 0;
+    int n = 0;
+    int front = 0;
+    int back = 0;
+    int midpoint = arrSize/2;
+    // Take in the array from the previous solution, reverse it.
+    // Display original array
+    cout << "Original array: \n";
+    for (i=0;i<arrSize;i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    n=arrSize-1;
+    for (i=0; i<midpoint; i++) {
+        front = arr[i];
+        back = arr[n];
+        arr[i] = back;
+        arr[n] = front;
+        n--;
+    }
+    cout << "New array:\n";
+    for (i=0;i<arrSize;i++) {
+    cout << arr[i] << " ";
+    }
+    cout    << "\nArray is now reversed."
+            << endl;
+    localPause();
+}
+
+void solution9_12(int arr[], int arrSize)
+{
+    int *newarr;
+    int i = 0;
+    int n = 0;
+    // Take in the array from the previous solution, expand by one.
+    // Display original array
+    cout << "Original array: \n";
+    for (i=0;i<arrSize;i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    arrSize++;
+    for (i=arrSize; i>0; i--) {
+        arr[i] = arr[i-1];
+    }
+    arr[0]=0;
+    cout << "New array:\n";
+    for (i=0;i<arrSize;i++) {
+    cout << arr[i] << " ";
+    }
+    cout    << "\nArray is now reversed."
+            << endl;
+    localPause();
 }
