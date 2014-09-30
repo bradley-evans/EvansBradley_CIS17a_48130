@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=assignment 2
+PROJECTNAME=Assignment 2
 
 # Active Configuration
 DEFAULTCONF=Debug
