@@ -1,5 +1,3 @@
-// TEST COMMIT
-
 /*
 Week 1 - 2
 
