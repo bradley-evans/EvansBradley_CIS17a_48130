@@ -7,8 +7,6 @@
  * Programmer:			Bradley Evans
  * Date:			April 22nd, 2013
  */
-
-//testedit2
  
 #include <iostream>
 #include <cstdlib>
