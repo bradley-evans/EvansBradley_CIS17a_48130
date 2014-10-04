@@ -340,4 +340,4 @@ void freqCounter (char charArray[],int cstrLength)
             << alphabet[4] << " with " << freqArray[4] << " occurrences.\n"
             << endl;
     
-}
+} 
