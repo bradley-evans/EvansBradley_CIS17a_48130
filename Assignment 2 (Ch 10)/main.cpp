@@ -1,8 +1,8 @@
 /*
  * Chapter 10 Solutions
-
-Bradley Evans
-*/
+ *
+ * Bradley Evans
+ */
 
 //Includes
 #include <iostream>
