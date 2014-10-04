@@ -204,22 +204,29 @@ void displayFile(string &filename) // Displays contents of selected file, one li
     
     ifstream inFile;         // file
     
-    inFile.open(filename);
+    inFile.open(filename.c_str(),ios::beg|ios::in);
     
-    do {
-        cout.put(ch);
-        if (ch == '\n') {
-            cout << numLines << ": ";
-            numLines++;
-        }
-        if ((numLines%20)==0) {
-            localPause();
-        }
-    } while (inFile.get(ch));
+    if (!inFile) {
+        cout << filename << " could not be opened! Please select another file.\n";
+        return(0);        
+    }
+    
+    
+    
+    
     
 }
 
 void searchString(string &filename)
 {
+    ifstream inFile;
+    string  searchterm;
     
+    inFile.open(filename.c_str());
+    
+    cout    << "Please enter the string you wish to search for:\n"
+            << "> ";
+    cin     >> searchterm;
+    
+ 
 }
