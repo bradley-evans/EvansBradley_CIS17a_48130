@@ -20,6 +20,7 @@ using namespace std;
         void setFileName(string &filename);         // Open a file specified by user
         int  displayFile(string &filename);         // Display file contents
         void searchString(string &filename);        // Search the file for a string
+        void crypto(string filename);               // ROT13-ish encryption
         
         
 //Main
@@ -31,7 +32,7 @@ int main()
         
         // Variables related to homework begin --------------
         bool        isFileOpen = false;     // Is a file currently open?
-        string      filename = "NONE";      // Filename currently in use.
+        string      filename = "testfile.txt";      // Filename currently in use.
         string      filename_2 = "NONE";    // Secondary filename.
 
         
@@ -53,17 +54,17 @@ int main()
 				break;
                         case '2':
                                 cout	<< endl;
-                                
+                                displayFile(filename);
                                 localPause();
                                 break;
                         case '3':
                                 cout	<< endl;    
-                                
+                                searchString(filename);
                                 localPause();
                                 break; 
                         case '4':
                                 cout	<< endl;
-                                
+                                crypto(filename);
                                 localPause();
                                 break;
                         case '5':
@@ -200,7 +201,8 @@ void setFileName(string &filename) // User chooses and sets a filename.
         testFile.open(filename.c_str(), ios::out);     
     } else {                                    // Else, acknowledge that the file exists.
         cout << "File [ " << filename << " ] is open!" << endl;
-    }   
+    }
+    testFile.close();
     
 }
 
@@ -212,17 +214,30 @@ int displayFile(string &filename) // Displays contents of selected file, one lin
     
     fstream     fileOutput;        
     
-    fileOutput.open(filename.c_str(),ios::in);
+    fileOutput.open(filename.c_str(), ios::in );
     
     if (fileOutput.fail()) {
         cout << filename << " could not be opened! Please select another file.\n";
         return(0);
     }
-    cout    << "Displaying [ " << filename << " ]";
-    while (fileOutput >> output) 
+    cout    << "Displaying [ " << filename << " ] ...";
+    getline(fileOutput,output,'\n');
+    while (fileOutput) 
     {
-        cout    << output;
+        cin.clear();
+        if ((numLines%25-1)==0) { 
+            cout << endl;
+            cout << "Press [ENTER] to continue...";
+            cin.get();
+            cout << endl;
+        }
+        cout << numLines << ": ";
+        cout << output << endl;
+        numLines++;
+        
+        getline(fileOutput,output,'\n');
     }
+    fileOutput.close();
         
     return(0);
 }
@@ -231,12 +246,64 @@ void searchString(string &filename)
 {
     ifstream    inFile;
     string      searchterm;
+    string      compareline;
+    int         instances = 0;
+    int         currline;
     
     inFile.open(filename.c_str());
     
-    cout    << "Please enter the string you wish to search for:\n"
-            << "> ";
+    cout    << "Please enter the word you wish to search for (no spaces):\n"
+            << "> "; 
     cin     >> searchterm;
     
+    while (inFile >> compareline) {
+        if (compareline == searchterm) {
+            instances++;
+        }       
+    }
+    cout << instances << " instances of the word " << searchterm << " were found!";
  
+}
+
+void crypto(string filename)
+{
+    char plaintext[55] =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .";
+    char cyphertext[55] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM .";
+    fstream inFile;
+    fstream cryptFile;
+    char *compare;
+    char ch;    // holds a character.
+    int i=0;
+    int n=0;
+    int charvalue = 0; // where the character exists in the array
+    int lineNum=0;
+    
+    inFile.open(filename.c_str(),ios::in);
+    cryptFile.open("encrypted.txt",ios::out);
+    
+    if (inFile) {
+        inFile.get(ch);
+        while (inFile) {            
+            for (i=0;i<55; i++) {
+                if (ch==plaintext[i]) { 
+                    charvalue = i;
+                    cout << cyphertext[charvalue];
+                } else if (ch == '\n') {
+                    cryptFile.put('\n');
+                }                    
+            }
+            cryptFile.put(cyphertext[charvalue]);
+            lineNum++;
+            if ((numLines%25-1)==0) { 
+                cout << endl;
+                cout << "Press [ENTER] to continue...";
+                cin.get();
+                cout << endl;
+            }
+            inFile.get(ch);
+        }                   
+    }
+    inFile.close();
+    cryptFile.close();
+   
 }
