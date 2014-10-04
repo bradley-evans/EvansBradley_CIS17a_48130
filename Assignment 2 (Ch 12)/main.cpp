@@ -18,7 +18,7 @@ using namespace std;
         
         // Functions for homework questions.
         void setFileName(string &filename);         // Open a file specified by user
-        void displayFile(string &filename);         // Display file contents
+        int  displayFile(string &filename);         // Display file contents
         void searchString(string &filename);        // Search the file for a string
         
         
@@ -183,7 +183,7 @@ void localPause ()
 
 void setFileName(string &filename) // User chooses and sets a filename.
 {
-
+    fstream testFile; 
     
     cout    << "Enter the name of a text file.\n"
             << "     - Do not include a file extension!\n"
@@ -193,34 +193,44 @@ void setFileName(string &filename) // User chooses and sets a filename.
     cin     >> filename;
     filename = filename + ".txt";
     std::transform(filename.begin(),filename.end(),filename.begin(),::tolower);
-  
+    
+    testFile.open(filename.c_str(), ios::in);
+    if (testFile.fail()) {                      // If the file doesn't exist, create it.
+        cout << "\nCreating " << filename << "..." << endl;
+        testFile.open(filename.c_str(), ios::out);     
+    } else {                                    // Else, acknowledge that the file exists.
+        cout << "File [ " << filename << " ] is open!" << endl;
+    }   
+    
 }
 
-void displayFile(string &filename) // Displays contents of selected file, one line at a time.
+int displayFile(string &filename) // Displays contents of selected file, one line at a time.
 {
-    int     i = 0;          // iterator
-    int     numLines = 1;   // number of lines
-    char    ch = '\n';      // character stream
+    int         i = 0;          // iterator
+    int         numLines = 1;   // number of lines
+    string      output;         // character stream
     
-    ifstream inFile;         // file
+    fstream     fileOutput;        
     
-    inFile.open(filename.c_str(),ios::beg|ios::in);
+    fileOutput.open(filename.c_str(),ios::in);
     
-    if (!inFile) {
+    if (fileOutput.fail()) {
         cout << filename << " could not be opened! Please select another file.\n";
-        return(0);        
+        return(0);
     }
-    
-    
-    
-    
-    
+    cout    << "Displaying [ " << filename << " ]";
+    while (fileOutput >> output) 
+    {
+        cout    << output;
+    }
+        
+    return(0);
 }
 
 void searchString(string &filename)
 {
-    ifstream inFile;
-    string  searchterm;
+    ifstream    inFile;
+    string      searchterm;
     
     inFile.open(filename.c_str());
     
