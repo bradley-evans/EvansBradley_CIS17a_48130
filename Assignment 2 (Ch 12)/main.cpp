@@ -271,39 +271,48 @@ void crypto(string filename)
     char cyphertext[55] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM .";
     fstream inFile;
     fstream cryptFile;
-    char *compare;
     char ch;    // holds a character.
+    char en;    // holds the encrypted char
     int i=0;
-    int n=0;
     int charvalue = 0; // where the character exists in the array
     int lineNum=0;
     
     inFile.open(filename.c_str(),ios::in);
     cryptFile.open("encrypted.txt",ios::out);
     
-    if (inFile) {
+    if (inFile) {                   // Encrypt the text file using single sub cypher, save to a different file.
         inFile.get(ch);
         while (inFile) {            
             for (i=0;i<55; i++) {
                 if (ch==plaintext[i]) { 
-                    charvalue = i;
-                    cout << cyphertext[charvalue];
-                } else if (ch == '\n') {
-                    cryptFile.put('\n');
-                }                    
-            }
-            cryptFile.put(cyphertext[charvalue]);
-            lineNum++;
-            if ((numLines%25-1)==0) { 
-                cout << endl;
-                cout << "Press [ENTER] to continue...";
-                cin.get();
-                cout << endl;
+                    cout << cyphertext[i];
+                    en = cyphertext[i];
+                    cryptFile.put(en);
+                } else if ( ch == '\n' ) {
+                    en = '\n';
+                    cryptFile.put(en);                           
+                }
             }
             inFile.get(ch);
         }                   
     }
     inFile.close();
     cryptFile.close();
-   
+    
+    cout << "\n Saved encrypted results as encrypted.txt\n";
+    
+    /*
+    inFile.open(filename.c_str(),ios::out|ios::beg);
+    cryptFile.open ("encrypted.txt",ios::in|ios:beg);
+      
+    if (cryptFile) {            // Write the encrypted results back to the file
+        cryptFile.get(ch);
+        while (cryptFile) {
+            inFile.put(ch);
+            cryptFile.get(ch);
+        }
+    }
+    inFile.close();
+    cryptFile.close();
+    */
 }
