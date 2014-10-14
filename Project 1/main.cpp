@@ -6,6 +6,8 @@
  */
 
 #include <cstdlib>
+#include <iostream>
+
 #include "functions.h"      // keeping my functions off main
 #include "classes.h"        // keeping my classes off main
 using namespace std;
@@ -17,7 +19,9 @@ using namespace std;
  * 
  */
 int main() {
-
+    testFunc();
+    statHeader();
+    cout << "FEAR: " << suspect.fear;
     return 0;
 }
 
