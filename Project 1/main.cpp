@@ -20,9 +20,11 @@ using namespace std;
  */
 int main() {
     // Display introduction
-    Gameclock clock;
+    Gameclock clock;        // tracks time, tick time down using clock.downtick(loss);
     
-    testFunc();
+    clock.initialize();
+    cout << clock.currtime();
+    
     statHeader();
     
 }

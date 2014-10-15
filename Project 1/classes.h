@@ -7,6 +7,9 @@
 
 #ifndef CLASSES_H
 #define	CLASSES_H
+// Dependant Files
+#include <time.h>       // to seed random function
+using namespace std;
 
 struct Suspect_s {
     // Primary Attributes
@@ -23,17 +26,23 @@ struct Suspect_s {
     int fatigue;                    // stamina
 } suspect;
 
-class Gameclock {                       // To demonstrate the ability to use a class
-    int timeleft    = 100;
+class Gameclock {                       // Tracks in game time remaining
+    int timeleft;
 public:
     void downtick(int);
     int currtime();
+    void initialize();
 };
-void Gameclock::downtick(int loss) {
+void Gameclock::downtick(int loss) {    // To decrement the time counter.
     timeleft = timeleft - loss;
 }
-int Gameclock::currtime() {
+int Gameclock::currtime() {             // Displays time remaining.
     return(timeleft);
+}
+void Gameclock::initialize() {
+    int randTime;
+    srand(time(NULL));
+    timeleft = 20 + (rand()%20);
 }
 #endif	/* CLASSES_H */
 
