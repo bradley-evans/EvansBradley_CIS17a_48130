@@ -23,6 +23,7 @@ int main() {
     Gameclock clock;        // tracks time, tick time down using clock.downtick(loss);
     
     clock.initialize();
+    
     cout << clock.currtime();
     
     statHeader();

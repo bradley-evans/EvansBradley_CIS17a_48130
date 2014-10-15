@@ -27,7 +27,7 @@ void statHeader() // display suspect stats in realtime
             << "FEAR: " << suspect.fear << " || HATRED:      " << suspect.hatred << " || FATIGUE:    " << suspect.stamina << endl
             << "PAIN: " << suspect.pain << " || DESPERATION: " << suspect.desperation << " || WILLPOWER: " << suspect.willpower << endl;
     cout    << "------------------------------------------------------------" << endl;
-    cout    << "...Time Left: " <<  endl; 
+   
     
 }
 
