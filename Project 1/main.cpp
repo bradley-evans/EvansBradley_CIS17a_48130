@@ -19,9 +19,11 @@ using namespace std;
  * 
  */
 int main() {
+    // Display introduction
+    Gameclock clock;
+    
     testFunc();
     statHeader();
-    cout << "FEAR: " << suspect.fear;
-    return 0;
+    
 }
 

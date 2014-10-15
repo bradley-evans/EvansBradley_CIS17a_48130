@@ -23,5 +23,17 @@ struct Suspect_s {
     int fatigue;                    // stamina
 } suspect;
 
+class Gameclock {                       // To demonstrate the ability to use a class
+    int timeleft    = 100;
+public:
+    void downtick(int);
+    int currtime();
+};
+void Gameclock::downtick(int loss) {
+    timeleft = timeleft - loss;
+}
+int Gameclock::currtime() {
+    return(timeleft);
+}
 #endif	/* CLASSES_H */
 
