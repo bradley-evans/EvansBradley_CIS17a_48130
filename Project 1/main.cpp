@@ -35,9 +35,10 @@ int main() {
     cout << clock.currtime();
     
     statHeader();
-    
-    readInput(ptrcmd,MAXL);
-    cout << "test";
+    do {
+        readInput(ptrcmd,MAXL);
+        clock.downtick(1);
+    } while (clock.currtime() < 0);
     
 }
 

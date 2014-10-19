@@ -17,9 +17,13 @@
 #include "classes.h"
 using namespace std;
 // ------------------------
-void testFunc()
+void localPause ()
 {
-    cout << "Header file 'functions.h' linked successfully.\n";
+        cout << endl;
+        cin.ignore();
+        cout << "Press [ENTER] to continue...";
+        cin.get();
+        cout << endl;
 }
 
 void statHeader() // display suspect stats in realtime
@@ -39,12 +43,12 @@ void readInput (char* &command, int MAXL) // take in the user's command
     
     char    cstrnoun[MAXL];
     char    cstrverb[MAXL];
-    char    *nounptr;
-    char    *verbptr;
+    char    *nounptr = cstrnoun;
+    char    *verbptr = cstrverb;
     int     nounsize;
     int     verbsize;
     bool    invalidInput;
-    bool    endword;
+    int     inputLength;
     
     string  noun;
     string  verb;
@@ -52,37 +56,33 @@ void readInput (char* &command, int MAXL) // take in the user's command
     cout    << "\nPlease enter your command. Use a verb followed by a noun such as 'ask name.'" << endl
             << "> ";
     cin.getline(command,MAXL);          // get your command
+    inputLength = cin.gcount();         // how long was last input?
     cout    << "\nYour command was: " << command << endl;
     
     // Parse the command into a noun or a verb.
     
     do {
-        verbptr[i]=command[i];        
+        cstrverb[i]=command[i];        
         i++;
     } while (command[i] != ' ');
-    verbptr[i] = '\n';  // place a delimiter character at the end of the noun
+    cstrverb[i] = '\0';             // place a delimiter character at the end of the noun
     i++;
-    cout <<"hmm" i;
+    
     do {
-        cout << "\nmade it to the loop";
         cout << endl;
-        nounptr[n]=command[i];
-        cout << nounptr[n];
+        cstrnoun[n]=command[i];
         i++;
         n++;
+    } while (i < inputLength || command[i] != ' ');
+    cstrnoun[i]='\0';
+   
+    if (!invalidInput) {        
+        noun = nounptr;
+        verb = verbptr;
 
-    } while (command[i]!='\n');
-    
-    if (invalidInput) {
-        cout << "More than two words detected!";
-        
-    } 
-    
-    noun = nounptr;
-    verb = verbptr;
-    
-    cout    << "Verb: " << verb << endl
-            << "Noun: " << noun << endl;
+        cout    << "Verb: " << verb << endl
+                << "Noun: " << noun << endl;
+    }
         
         
 }
