@@ -11,7 +11,7 @@
 #include <time.h>       // to seed random function
 using namespace std;
 
-struct Suspect_s {
+struct Suspect_s {                      // Defines the suspect's statistics.     
     // Primary Attributes
     int fear;                       // coercion -- affects fatigue, desperation
     int hatred;                     // random, represents suspect's likelihood to cooperate
@@ -44,5 +44,8 @@ void Gameclock::initialize() {
     srand(time(NULL));
     timeleft = 20 + (rand()%20);
 }
+
+// VERBS
+st
 #endif	/* CLASSES_H */
 
