@@ -45,7 +45,6 @@ void Gameclock::initialize() {
     timeleft = 20 + (rand()%20);
 }
 
-// VERBS
-st
+
 #endif	/* CLASSES_H */
 
