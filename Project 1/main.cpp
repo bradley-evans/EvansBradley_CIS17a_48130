@@ -38,7 +38,7 @@ int main() {
     do {
         readInput(ptrcmd,MAXL);
         clock.downtick(1);
-    } while (clock.currtime() < 0);
+    } while (clock.currtime() > 0);
     
 }
 

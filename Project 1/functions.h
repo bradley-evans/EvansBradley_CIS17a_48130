@@ -41,18 +41,17 @@ void readInput (char* &command, int MAXL) // take in the user's command
     int     i = 0;      // iterator 1
     int     n = 0;      // iterator 2
     
-    char    cstrnoun[MAXL];
-    char    cstrverb[MAXL];
-    char    *nounptr = cstrnoun;
-    char    *verbptr = cstrverb;
-    int     nounsize;
-    int     verbsize;
-    bool    invalidInput;
-    int     inputLength;
+    char    cstrnoun[MAXL];         // cstring for the inbound noun
+    char    cstrverb[MAXL];         // cstring for the inbound verb
+    char    *nounptr = cstrnoun;    // cstring pointer, noun
+    char    *verbptr = cstrverb;    // cstring pointer, verb
+    bool    invalidInput;           // is the input valid?
+    int     inputLength;            // total length of the string
     
-    string  noun;
-    string  verb;
-        
+    string  noun = " ";
+    string  verb = " ";
+    
+    cin.clear();
     cout    << "\nPlease enter your command. Use a verb followed by a noun such as 'ask name.'" << endl
             << "> ";
     cin.getline(command,MAXL);          // get your command
@@ -69,22 +68,23 @@ void readInput (char* &command, int MAXL) // take in the user's command
     i++;
     
     do {
-        cout << endl;
         cstrnoun[n]=command[i];
         i++;
         n++;
-    } while (i < inputLength || command[i] != ' ');
-    cstrnoun[i]='\0';
-   
-    if (!invalidInput) {        
+    } while (i < inputLength);
+    for (i=0;i<n;i++) {
+        if (cstrnoun[i]==' ') {
+            cstrnoun[i] = '\0';
+            i=n;
+        }
+    }
+          
         noun = nounptr;
         verb = verbptr;
-
+        cout    << "change ok 1114\n";
         cout    << "Verb: " << verb << endl
                 << "Noun: " << noun << endl;
-    }
-        
-        
+    
 }
        
 
