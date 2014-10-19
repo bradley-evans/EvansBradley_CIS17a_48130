@@ -1,7 +1,8 @@
 File,Function,LOC,SLOC-P,SLOC-L,MVG,BLOC,C&SLOC,CLOC,CWORD
-C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\main.cpp,main(),10,5,5,0,4,1,1,9,
+C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\main.cpp,main(),18,11,11,0,5,3,2,23,
 C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\classes.h,Gameclock::downtick(int loss),2,2,2,0,0,1,0,5,
 C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\classes.h,Gameclock::currtime(),2,2,2,1,0,1,0,3,
 C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\classes.h,Gameclock::initialize(),4,4,4,0,0,0,0,0,
-C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\functions.h,testFunc(),2,2,2,0,0,0,0,0,
+C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\functions.h,localPause(),6,6,6,0,0,0,0,0,
 C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\functions.h,statHeader(),7,6,4,0,1,0,0,0,
+C:\Users\Bradley Evans\Desktop\RCC\14FAL\CSC17A\GitHub\EvansBradley_CIS17a_48130\Project 1\functions.h,"readInput(char* &command, int MAXL)",48,39,35,2,8,11,1,56,

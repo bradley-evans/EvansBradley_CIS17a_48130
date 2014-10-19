@@ -36,7 +36,7 @@ void statHeader() // display suspect stats in realtime
     
 }
 
-void readInput (char* &command, int MAXL) // take in the user's command
+void readInput (char* &command, int MAXL, string &noun, string &verb) // take in the user's command
 {
     int     i = 0;      // iterator 1
     int     n = 0;      // iterator 2
@@ -47,17 +47,14 @@ void readInput (char* &command, int MAXL) // take in the user's command
     char    *verbptr = cstrverb;    // cstring pointer, verb
     bool    invalidInput;           // is the input valid?
     int     inputLength;            // total length of the string
-    
-    string  noun = " ";
-    string  verb = " ";
-    
+        
     cin.clear();
     cout    << "\nPlease enter your command. Use a verb followed by a noun such as 'ask name.'" << endl
             << "> ";
     cin.getline(command,MAXL);          // get your command
     inputLength = cin.gcount();         // how long was last input?
     cout    << "\nYour command was: " << command << endl;
-    
+       
     // Parse the command into a noun or a verb.
     
     do {
@@ -81,10 +78,6 @@ void readInput (char* &command, int MAXL) // take in the user's command
           
         noun = nounptr;
         verb = verbptr;
-        cout    << "change ok 1114\n";
-        cout    << "Verb: " << verb << endl
-                << "Noun: " << noun << endl;
-    
 }
        
 
