@@ -72,6 +72,9 @@ void ask (Noun noun)
 {
     switch (noun) {
         case Noun::name: cmd_ask_name();    // "ask name"
+        case Noun::base: break;
+        case Noun::attack: break;
+        
     }
 }
 #endif	/* NOUNS_H */

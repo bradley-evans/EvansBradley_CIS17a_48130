@@ -7,6 +7,7 @@
 
 #ifndef CLASSES_H
 #define	CLASSES_H
+
 // Dependant Files
 #include <cstdlib>      // for rand()
 #include <time.h>       // to seed random function
@@ -21,9 +22,13 @@ struct Suspect_s {                      // Defines the suspect's statistics.
             distort,        // misinformation, with some truth
             distract;       // distract
     // primary three responses
-    int     comply,         // comply at all
+    int     comply,         // answer at all
             honest,         // be honest
             deception;      // be deceptive
+    // other modifiers
+    int     exhaustion,     // tired
+            pain,           // result of torture
+            hatred;         // hatred, willingness to do anything to deny information
 } suspect;
 
 class Gameclock {                       // Tracks in game time remaining
@@ -40,7 +45,6 @@ int Gameclock::currtime() {             // Displays time remaining.
     return(timeleft);
 }
 void Gameclock::initialize() {
-    int randTime;
     srand(time(NULL));
     timeleft = 20 + (rand()%20);
 }

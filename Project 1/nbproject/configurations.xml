@@ -43,6 +43,7 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <commandLine>-Wall -Wextra -errors</commandLine>
         </ccTool>
       </compileType>
       <item path="classes.h" ex="false" tool="3" flavor2="0">

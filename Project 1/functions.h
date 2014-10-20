@@ -26,7 +26,7 @@ void localPause ()
         cout << endl;
 }
 
-void readInput (char* &command, int MAXL, string &noun, string &verb) // take in the user's command
+void readInput (char* &command, const int MAXL, string &noun, string &verb) // take in the user's command
 {
     int     i = 0;      // iterator 1
     int     n = 0;      // iterator 2
@@ -35,7 +35,6 @@ void readInput (char* &command, int MAXL, string &noun, string &verb) // take in
     char    cstrverb[MAXL];         // cstring for the inbound verb
     char    *nounptr = cstrnoun;    // cstring pointer, noun
     char    *verbptr = cstrverb;    // cstring pointer, verb
-    bool    invalidInput;           // is the input valid?
     int     inputLength;            // total length of the string
         
     cin.clear();
@@ -72,7 +71,7 @@ void readInput (char* &command, int MAXL, string &noun, string &verb) // take in
 
 char verifyExit(char exitChoice)
 {
-    bool loop;
+    bool loop = true;
     cout    << "\nAre you sure you want to quit? You will lose all progress! [Y/N]" << endl
             << "> ";
     cin     >> exitChoice;
@@ -84,12 +83,12 @@ char verifyExit(char exitChoice)
             case 'N':   return('0');
         }
     } while (loop);
+    return ('0');
 }
 
 char validateInput (Verb verb, Noun noun)
 {
     char exitChoice = 'n';
-    char control;       // control char
     if (verb == Verb::invalid) {
         return('X');
     } else if (verb == Verb::quit) {
@@ -98,6 +97,7 @@ char validateInput (Verb verb, Noun noun)
     if (noun == Noun::invalid) {
         return('X');
     }
+    return('0');
 }
 
 
@@ -109,9 +109,9 @@ void initializeSuspect()
     suspect.silence     = 50 + dice.roll(50);
     suspect.distort     = 50 + dice.roll(50);
     suspect.distract    = 50 + dice.roll(50);
-    suspect.comply      = 50 + dice.roll(50);
-    suspect.honest      = 50 + dice.roll(50);
-    suspect.deception   = 50 + dice.roll(50);
+    suspect.comply      = dice.roll(10);
+    suspect.honest      = dice.roll(10);
+    suspect.deception   = dice.roll(10);
     
     // debug
     cout    << "Minimize: " << suspect.minimize

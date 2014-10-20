@@ -18,10 +18,7 @@ void printLine(string filename, int line)
 {
     char        descrip[11][500] = {0};
     char        *ch_arr = descrip[0];
-    char        cbuffer;
     fstream     text;
-    bool        isNewline = false;
-    int         x = 0;
     int         y = 0;
     
     cout << "\nfile: " << filename << " line: " << line << endl;
@@ -39,7 +36,7 @@ void printLine(string filename, int line)
     }
     text.close();
     ch_arr = descrip[line];
-    cout    <<" " ch_arr << endl;
+    cout    << " " << ch_arr << endl;
         
 }
 // SYNTAX cmd_[noun]_[verb] ()
@@ -47,15 +44,24 @@ void printLine(string filename, int line)
 // ask
 void cmd_ask_name() {       // ask name
     Dice dice;
-    int result = 0;
+    int result;
     result = dice.roll(100);
-    cout << "\nHe told you his name!" << endl;          
+    if ((suspect.silence - suspect.comply - suspect.exhaustion) > result) {
+        cout << "\nThe suspect sits there quietly." << endl;
+    } else if ((suspect.silence - suspect.comply - suspect.exhaustion) <= result) {
+        result = dice.roll(100);
+        if (result > (suspect.deception - suspect.exhaustion)) {
+            cout << "He gives you his real name!" << endl;
+        } else {
+            cout << "He lies about his name." << endl;
+        }
+    }
+    suspect.exhaustion++;                
 }
-
+        
 // look
 void cmd_look_suspect()     // look suspect
 {
-    int         i = 0;  // iterator
     int         statePosture;
     string      descfile;
     
