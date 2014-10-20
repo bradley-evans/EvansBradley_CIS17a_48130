@@ -35,32 +35,31 @@ int main() {
     string  verb;                   // user gives me a verb
     Noun    pNoun;                  // A parsed out noun, associated with an enum
     Verb    pVerb;                  // A parsed out verb, associated with an enum
-    char    control;                // Control Characters
+    char    control;                // Control / Command Character
     // Classes and Structures
     Gameclock clock;        // tracks time, tick time down using clock.downtick(loss);
     
     clock.initialize();
+    cout << "Initializing suspect.." << endl;
+    initializeSuspect();
        
     do {
         cout << "Time remaining: " << clock.currtime() << " ticks.";
-        statHeader();
-        readInput(ptrcmd,MAXL,noun,verb);
-        clock.downtick(1);
-                
-        cout    << "Verb:               " << verb << endl
-                << "Noun:               " << noun << endl;
-        pNoun = parseNoun(noun);
-        pVerb = parseVerb(verb);
-        control = validateInput(pVerb,pNoun);
-        if (control == 'X') {
+        readInput(ptrcmd,MAXL,noun,verb);       // take a command from the user and prepare it for parsing
+        clock.downtick(1);                      // decrement the clock
+        pNoun = parseNoun(noun);                // parse the noun
+        pVerb = parseVerb(verb);                // now parse the verb
+        control = validateInput(pVerb,pNoun);   // validate the input
+        if (control == 'X') {                   // if input is invalid, say so...
             cout << "I'm sorry, I don't know how to \"" << ptrcmd << ".\"" << endl;
-            clock.downtick(-1);
-            cout << "\nDiceroll: " << diceroller(100) << endl;
+            clock.downtick(-1);                 // ... and don't run out the clock for bad input.
+        } else if (control == 'E') {                   // if input is invalid, say so...
+            cout << "\nExiting the game..." << endl;
+            return 0;    
         } else {
-            verbProc(pNoun,pVerb);
+            verbProc(pNoun,pVerb);              // if input is valid, process it
         }
-                    
-        
+                   
     } while (clock.currtime() > 0);
     
 }

@@ -71,7 +71,7 @@ Noun parseNoun(string &noun)
 void ask (Noun noun) 
 {
     switch (noun) {
-        case Noun::name: cmd_ask_name();
+        case Noun::name: cmd_ask_name();    // "ask name"
     }
 }
 #endif	/* NOUNS_H */

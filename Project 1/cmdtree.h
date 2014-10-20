@@ -7,21 +7,21 @@
 
 #ifndef CMDTREE_H
 #define	CMDTREE_H
-#include <iostream>
+
 #include "functions.h"
+#include <iostream>
 #include "classes.h"
+using namespace std;
 
 // SYNTAX cmd_[noun]_[verb] ()
 
 void cmd_ask_name() {
-    int result;
-    result = diceroller(10);
-    cout << "\n" << result << " was the diceroll for this action...\n";            
-    cout << "\nHe told you his name!" << endl;
-            
+    Dice dice;
+    int result = 0;
+    result = dice.roll(100);
+    cout << "\nI wonder if I can call suspect attributes..." << suspect.minimize;
+    cout << "\nHe told you his name!" << endl;          
 }
-
-
 
 #endif	/* CMDTREE_H */
 

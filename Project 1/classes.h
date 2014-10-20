@@ -9,21 +9,20 @@
 #define	CLASSES_H
 // Dependant Files
 #include <time.h>       // to seed random function
+#include <ctime>
+#include "functions.h"
 using namespace std;
 
 struct Suspect_s {                      // Defines the suspect's statistics.     
-    // Primary Attributes
-    int fear;                       // coercion -- affects fatigue, desperation
-    int hatred;                     // random, represents suspect's likelihood to cooperate
-    int stamina;                    // affects fatigue loss
-    int intelligence;               // reason -- affects ability to form deceptions
-    int loyalty;                    // threaten -- represents suspect's likelihood to lie
-    int willpower;                  // represents suspect's resistance to coercion
-    // Derived Attributes
-    int deception;                  // intelligence, loyalty, hatred
-    int desperation;                // fear, fatigue, pain
-    int pain;                       // user manipulated
-    int fatigue;                    // stamina
+    // The likelihood the suspect will take a certain action.
+    int     minimize,       // give minimum amount of cooperation, delay tactic
+            silence,        // ignore interrogation
+            distort,        // misinformation, with some truth
+            distract;       // distract
+    // primary three responses
+    int     comply,         // comply at all
+            honest,         // be honest
+            deception;      // be deceptive
 } suspect;
 
 class Gameclock {                       // Tracks in game time remaining
@@ -45,6 +44,20 @@ void Gameclock::initialize() {
     timeleft = 20 + (rand()%20);
 }
 
+class Dice {
+public: 
+    int roll (int); // roll dice of (size)
+};
+int Dice::roll (int size) {  
+    int result;
+    srand(clock());
+    result = rand() % size;
+    // Delay, to ensure the same time isn't used for each dice roll accidentally.
+    clock_t start_time = clock();
+    clock_t end_time = 10 + start_time;
+    do { /* nothing */ } while ( clock() < end_time);
+    return(result);
+}
 
 #endif	/* CLASSES_H */
 

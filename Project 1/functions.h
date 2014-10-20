@@ -7,9 +7,6 @@
 
 #ifndef FUNCTIONS_H
 #define	FUNCTIONS_H
-
-#ifdef	__cplusplus
-
 // Function dependencies --
 #include <iostream>
 #include <string>
@@ -19,6 +16,7 @@
 #include "verbs.h"
 #include "classes.h"
 #include "cmdtree.h"
+#include <ctime>
 using namespace std;
 // ------------------------
 void localPause ()
@@ -28,16 +26,6 @@ void localPause ()
         cout << "Press [ENTER] to continue...";
         cin.get();
         cout << endl;
-}
-
-void statHeader() // display suspect stats in realtime
-{
-    cout    << "\n------------------------------------------------------------" << endl;
-    cout    << "CURRENT SUSPECT STATS (DEBUG MODE):" << endl
-            << "FEAR: " << suspect.fear << " || HATRED:      " << suspect.hatred << " || FATIGUE:    " << suspect.stamina << endl
-            << "PAIN: " << suspect.pain << " || DESPERATION: " << suspect.desperation << " || WILLPOWER: " << suspect.willpower << endl;
-    cout    << "------------------------------------------------------------" << endl;
-    
 }
 
 void readInput (char* &command, int MAXL, string &noun, string &verb) // take in the user's command
@@ -84,33 +72,54 @@ void readInput (char* &command, int MAXL, string &noun, string &verb) // take in
         verb = verbptr;
 }
 
-int diceroller (int size)      // roll dice with size number of possible outcomes, usually 100
+
+char verifyExit(char exitChoice)
 {
-    int result;
-    srand(time(NULL));
-    result = rand() % size;
-    return(result);
+    bool loop;
+    cout    << "\nAre you sure you want to quit? You will lose all progress! [Y/N]" << endl
+            << "> ";
+    cin     >> exitChoice;
+    do {
+        switch (exitChoice) {
+            case 'y':   return('E');
+            case 'Y':   return('E');
+            case 'n':   return('0');
+            case 'N':   return('0');
+        }
+    } while (loop);
 }
 
 char validateInput (Verb verb, Noun noun)
 {
+    char exitChoice = 'n';
+    char control;       // control char
     if (verb == Verb::invalid) {
         return('X');
+    } else if (verb == Verb::quit) {
+        return(verifyExit(exitChoice));
     }
     if (noun == Noun::invalid) {
         return('X');
     }
 }
-       
-
-#endif
 
 
-
-
-#ifdef	__cplusplus
-
-#endif
+void initializeSuspect()
+{
+    Dice dice;
+    
+    suspect.minimize    = 50 + dice.roll(50);
+    suspect.silence     = 50 + dice.roll(50);
+    suspect.distort     = 50 + dice.roll(50);
+    suspect.distract    = 50 + dice.roll(50);
+    suspect.comply      = 50 + dice.roll(50);
+    suspect.honest      = 50 + dice.roll(50);
+    suspect.deception   = 50 + dice.roll(50);
+    
+    // debug
+    cout    << "Minimize: " << suspect.minimize
+            << "Silence:  " << suspect.silence;
+}
 
 #endif	/* FUNCTIONS_H */
 
