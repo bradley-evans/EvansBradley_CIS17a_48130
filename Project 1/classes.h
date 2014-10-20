@@ -8,6 +8,7 @@
 #ifndef CLASSES_H
 #define	CLASSES_H
 // Dependant Files
+#include <cstdlib>      // for rand()
 #include <time.h>       // to seed random function
 #include <ctime>
 #include "functions.h"

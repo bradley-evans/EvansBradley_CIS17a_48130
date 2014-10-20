@@ -8,7 +8,6 @@
  * 
  */
 
-#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -25,7 +24,7 @@ using namespace std;
 /*
  * 
  */
-    const int MAXL = 50;    // maximum text command length
+    const int MAXL = 50;    // maximum character array length
 
 int main() {
     // Main Variables.
@@ -40,11 +39,12 @@ int main() {
     Gameclock clock;        // tracks time, tick time down using clock.downtick(loss);
     
     clock.initialize();
-    cout << "Initializing suspect.." << endl;
     initializeSuspect();
+    
+    introduction();
        
     do {
-        cout << "Time remaining: " << clock.currtime() << " ticks.";
+        cout << "\nTime remaining: " << clock.currtime() << " turns.";
         readInput(ptrcmd,MAXL,noun,verb);       // take a command from the user and prepare it for parsing
         clock.downtick(1);                      // decrement the clock
         pNoun = parseNoun(noun);                // parse the noun
@@ -53,7 +53,7 @@ int main() {
         if (control == 'X') {                   // if input is invalid, say so...
             cout << "I'm sorry, I don't know how to \"" << ptrcmd << ".\"" << endl;
             clock.downtick(-1);                 // ... and don't run out the clock for bad input.
-        } else if (control == 'E') {                   // if input is invalid, say so...
+        } else if (control == 'E') {            // if an exit condition is detected, then exit the game
             cout << "\nExiting the game..." << endl;
             return 0;    
         } else {

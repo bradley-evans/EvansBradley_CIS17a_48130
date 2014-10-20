@@ -30,6 +30,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>suspect_posture.txt</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -53,6 +54,8 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="nouns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_posture.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="verbs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -86,6 +89,8 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="nouns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_posture.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="verbs.h" ex="false" tool="3" flavor2="0">
       </item>

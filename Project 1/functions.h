@@ -11,12 +11,10 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <time.h>
 #include "classes.h"
 #include "verbs.h"
 #include "classes.h"
 #include "cmdtree.h"
-#include <ctime>
 using namespace std;
 // ------------------------
 void localPause ()
@@ -66,10 +64,9 @@ void readInput (char* &command, int MAXL, string &noun, string &verb) // take in
             cstrnoun[i] = '\0';
             i=n;
         }
-    }
-          
-        noun = nounptr;
-        verb = verbptr;
+    }          
+    noun = nounptr;
+    verb = verbptr;
 }
 
 
@@ -119,6 +116,10 @@ void initializeSuspect()
     // debug
     cout    << "Minimize: " << suspect.minimize
             << "Silence:  " << suspect.silence;
+}
+void introduction()
+{
+    cmd_look_suspect();
 }
 
 #endif	/* FUNCTIONS_H */
