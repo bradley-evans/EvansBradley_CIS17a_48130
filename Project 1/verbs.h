@@ -25,17 +25,18 @@ enum class Verb
     ask,        // ask a question
     quit,       // quit the game
     
-    
     invalid     // verb was invalid
             
 };
 
-map < string, Verb > knownVerbs;
-knownVerbs["ask"]   = Verb::ask;
-knownVerbs["quit"]  = Verb::quit;
-knownVerbs["exit"]  = Verb::quit;
+map < string, Verb > knownVerbs =
+{
+    {   "ask",      Verb::ask     },
+    {   "quit",     Verb::quit    },
+    {   "exit",     Verb::quit    }
+};
 
-Verb parseVerb(string &verb)
+Verb parseVerb(const string &verb)
 {
     auto n = knownVerbs.find(verb);
     if ( n == knownVerbs.end() ) {
@@ -44,5 +45,14 @@ Verb parseVerb(string &verb)
     return n->second;
 }
 
+/*
+ * Send the verb off to be paired with nouns.
+ */
+
+void verbProc (Noun noun, Verb verb) {
+    if (verb == Verb::ask) {
+        ask(noun);
+    }
+}
 #endif	/* VERBS_H */
 

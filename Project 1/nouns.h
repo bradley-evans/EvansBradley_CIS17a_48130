@@ -13,6 +13,7 @@
 #include "classes.h"
 #include "functions.h"
 #include "verbs.h"
+#include "cmdtree.h"
 using namespace std;
 
 /*
@@ -44,11 +45,14 @@ enum class Noun
  * http://www.cprogramming.com/c++11/c++11-auto-decltype-return-value-after-function.html
  *
  */
-map < string, Noun > knownNouns;
-knownNouns["name"]      = Noun::name;
-knownNouns["base"]      = Noun::base;
-knownNouns["attack"]    = Noun::attack;
 
+map < string, Noun > knownNouns = 
+{
+    {   "name",         Noun::name        },
+    {   "base",         Noun::base        },
+    {   "attack",       Noun::attack      }
+};
+ 
 Noun parseNoun(string &noun)
 {
     auto n = knownNouns.find(noun);
@@ -58,6 +62,17 @@ Noun parseNoun(string &noun)
     return n->second;
 }
 
+/*
+ * The verb.h header has a function which determines what verb is being used.
+ * nouns.h will then decide what to do with the verb as it pertains to a particular
+ * noun, which is passed from the verb parser.
+ */
 
+void ask (Noun noun) 
+{
+    switch (noun) {
+        case Noun::name: cmd_ask_name();
+    }
+}
 #endif	/* NOUNS_H */
 

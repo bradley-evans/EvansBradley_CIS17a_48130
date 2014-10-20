@@ -14,7 +14,11 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <time.h>
 #include "classes.h"
+#include "verbs.h"
+#include "classes.h"
+#include "cmdtree.h"
 using namespace std;
 // ------------------------
 void localPause ()
@@ -78,6 +82,24 @@ void readInput (char* &command, int MAXL, string &noun, string &verb) // take in
           
         noun = nounptr;
         verb = verbptr;
+}
+
+int diceroller (int size)      // roll dice with size number of possible outcomes, usually 100
+{
+    int result;
+    srand(time(NULL));
+    result = rand() % size;
+    return(result);
+}
+
+char validateInput (Verb verb, Noun noun)
+{
+    if (verb == Verb::invalid) {
+        return('X');
+    }
+    if (noun == Noun::invalid) {
+        return('X');
+    }
 }
        
 

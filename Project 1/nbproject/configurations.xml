@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>classes.h</itemPath>
+      <itemPath>cmdtree.h</itemPath>
       <itemPath>functions.h</itemPath>
       <itemPath>nouns.h</itemPath>
       <itemPath>verbs.h</itemPath>
@@ -39,8 +40,13 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="classes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="functions.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -72,6 +78,8 @@
         </asmTool>
       </compileType>
       <item path="classes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="functions.h" ex="false" tool="3" flavor2="0">
       </item>
