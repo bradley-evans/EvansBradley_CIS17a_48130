@@ -5,8 +5,8 @@
  * Created on October 10, 2014, 3:32 PM
  */
 
-#ifndef FUNCTIONS_H
-#define	FUNCTIONS_H
+#ifndef FUNCTIONS_H     // if not defined
+#define	FUNCTIONS_H     // then define
 // Function dependencies --
 #include <iostream>
 #include <string>

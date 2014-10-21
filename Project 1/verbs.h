@@ -24,16 +24,19 @@ enum class Verb
 {
     ask,        // ask a question
     quit,       // quit the game
+    look,       // look at a thing
     
     invalid     // verb was invalid
             
 };
 
 map < string, Verb > knownVerbs =
-{
-    {   "ask",      Verb::ask     },
-    {   "quit",     Verb::quit    },
-    {   "exit",     Verb::quit    }
+{                                       // synonyms for:
+    {   "ask",      Verb::ask       },  // ask
+    {   "quit",     Verb::quit      },  // quit
+    {   "exit",     Verb::quit      },
+    {   "look",     Verb::look      },  // look
+    {   "examine",  Verb::look      }
 };
 
 Verb parseVerb(const string &verb)
@@ -50,8 +53,9 @@ Verb parseVerb(const string &verb)
  */
 
 void verbProc (Noun noun, Verb verb) {
-    if (verb == Verb::ask) {
-        ask(noun);
+    switch (noun) {
+        case Verb::ask:     ask(noun);
+        case Verb::look:    look(noun);
     }
 }
 #endif	/* VERBS_H */

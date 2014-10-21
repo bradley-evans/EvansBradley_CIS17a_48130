@@ -27,6 +27,7 @@ enum class Noun
     name,                   // ask the subject his name
     base,                   // where is the rebel base?
     attack,                 // when will the attack be?
+    suspect,                // The person you're interrogating
     
     invalid
 };
@@ -38,19 +39,22 @@ enum class Noun
  * 
  * A lot of help on building this text parsing function came from:
  * http://www.cplusplus.com/forum/general//119658
+ * 
  * and users at StackExchange in the following thread:
  * http://stackoverflow.com/questions/26455952/error-c-map-does-not-name-a-type/26455995#26455995
  * 
- * My use of the "auto" variable is documented below:
+ * My use of the "auto" variable in parseNoun() is documented in the below:
  * http://www.cprogramming.com/c++11/c++11-auto-decltype-return-value-after-function.html
  *
  */
 
 map < string, Noun > knownNouns = 
 {
-    {   "name",         Noun::name        },
-    {   "base",         Noun::base        },
-    {   "attack",       Noun::attack      }
+    {   "name",         Noun::name          },
+    {   "base",         Noun::base          },
+    {   "attack",       Noun::attack        },
+    {   "suspect",      Noun::suspect       }
+    
 };
  
 Noun parseNoun(string &noun)
@@ -71,10 +75,20 @@ Noun parseNoun(string &noun)
 void ask (Noun noun) 
 {
     switch (noun) {
-        case Noun::name: cmd_ask_name();    // "ask name"
-        case Noun::base: break;
-        case Noun::attack: break;
+        case Noun::name:    cmd_ask_name();    // "ask name"
+        case Noun::base:    break;
+        case Noun::attack:  break;
+        default:            cout << "\nYou should think of a better question." << endl;
         
+    }
+}
+
+void look (Noun noun)
+{
+    switch (noun) {
+        case Noun::invalid: cout << "\nI don't see anything like that here." << endl;
+                            break;
+        case Noun::suspect: cmd_look_suspect();     // look suspect
     }
 }
 #endif	/* NOUNS_H */

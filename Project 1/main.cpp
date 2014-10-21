@@ -5,6 +5,15 @@
  * Created on October 10, 2014, 3:30 PM
  * 
  * Some functions are very specific to C++11, such as "enum class" used in the parser.
+ * Checklist from the midterm assignment description:
+ * 
+ * [ ] Memory allocation
+ * [X] Functions with structures
+ *      See "classes.h" The diceroller used in this system includes functions with
+ *      structures. The gameclock is initialized and iterated in this way as well.
+ * [X] Pointers with arrays and arrays of structures, internally as well as externally.
+ *      The way that commands are processed and parsed demonstrates this with a character
+ *      array.
  * 
  */
 
