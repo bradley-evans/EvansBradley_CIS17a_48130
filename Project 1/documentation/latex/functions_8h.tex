@@ -1,0 +1,105 @@
+\hypertarget{functions_8h}{\section{C\+:/\+Users/\+Bradley Evans/\+Desktop/\+R\+C\+C/14\+F\+A\+L/\+C\+S\+C17\+A/\+Git\+Hub/\+Evans\+Bradley\+\_\+\+C\+I\+S17a\+\_\+48130/\+Project 1/functions.h File Reference}
+\label{functions_8h}\index{C\+:/\+Users/\+Bradley Evans/\+Desktop/\+R\+C\+C/14\+F\+A\+L/\+C\+S\+C17\+A/\+Git\+Hub/\+Evans\+Bradley\+\_\+\+C\+I\+S17a\+\_\+48130/\+Project 1/functions.\+h@{C\+:/\+Users/\+Bradley Evans/\+Desktop/\+R\+C\+C/14\+F\+A\+L/\+C\+S\+C17\+A/\+Git\+Hub/\+Evans\+Bradley\+\_\+\+C\+I\+S17a\+\_\+48130/\+Project 1/functions.\+h}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$cstring$>$}\\*
+{\ttfamily \#include \char`\"{}classes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}verbs.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cmdtree.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{functions_8h_a89b8fec42e19f131552aa65ae42c61e1}{F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{functions_8h_ad18007101126f66ca319001394ba72ea}{local\+Pause} ()
+\item 
+void \hyperlink{functions_8h_a1e6547bedac225e1ae8e34bb9966a952}{read\+Input} (char $\ast$\&command, const int \hyperlink{main_8cpp_abf707bbe9fb1d8f43dbe6cba58cd5462}{M\+A\+X\+L}, string \&noun, string \&verb)
+\item 
+char \hyperlink{functions_8h_a204cd395ddf24d95c454e67f11f176d0}{verify\+Exit} (char exit\+Choice)
+\item 
+char \hyperlink{functions_8h_a222ebfd6de1120c8eab86b7f3b60b881}{validate\+Input} (\hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822}{Verb} verb, \hyperlink{nouns_8h_a5590a51534fc71b6bb3cda6c2a5a84b0}{Noun} noun)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{functions_8h_a89b8fec42e19f131552aa65ae42c61e1}{\index{functions.\+h@{functions.\+h}!F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H@{F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H}}
+\index{F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H@{F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H}!functions.\+h@{functions.\+h}}
+\subsubsection[{F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+U\+N\+C\+T\+I\+O\+N\+S\+\_\+\+H}}\label{functions_8h_a89b8fec42e19f131552aa65ae42c61e1}
+
+
+\subsection{Function Documentation}
+\hypertarget{functions_8h_ad18007101126f66ca319001394ba72ea}{\index{functions.\+h@{functions.\+h}!local\+Pause@{local\+Pause}}
+\index{local\+Pause@{local\+Pause}!functions.\+h@{functions.\+h}}
+\subsubsection[{local\+Pause}]{\setlength{\rightskip}{0pt plus 5cm}void local\+Pause (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{functions_8h_ad18007101126f66ca319001394ba72ea}
+\hypertarget{functions_8h_a1e6547bedac225e1ae8e34bb9966a952}{\index{functions.\+h@{functions.\+h}!read\+Input@{read\+Input}}
+\index{read\+Input@{read\+Input}!functions.\+h@{functions.\+h}}
+\subsubsection[{read\+Input}]{\setlength{\rightskip}{0pt plus 5cm}void read\+Input (
+\begin{DoxyParamCaption}
+\item[{char $\ast$\&}]{command, }
+\item[{const int}]{M\+A\+X\+L, }
+\item[{string \&}]{noun, }
+\item[{string \&}]{verb}
+\end{DoxyParamCaption}
+)}}\label{functions_8h_a1e6547bedac225e1ae8e34bb9966a952}
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \\
+\hline
+{\em M\+A\+X\+L} & \\
+\hline
+{\em noun} & \\
+\hline
+{\em verb} & \\
+\hline
+\end{DoxyParams}
+$<$ iterator 1
+
+$<$ iterator 2
+
+$<$ cstring for the inbound noun
+
+$<$ cstring for the inbound verb
+
+$<$ get your command
+
+$<$ how long was last input? \hypertarget{functions_8h_a222ebfd6de1120c8eab86b7f3b60b881}{\index{functions.\+h@{functions.\+h}!validate\+Input@{validate\+Input}}
+\index{validate\+Input@{validate\+Input}!functions.\+h@{functions.\+h}}
+\subsubsection[{validate\+Input}]{\setlength{\rightskip}{0pt plus 5cm}char validate\+Input (
+\begin{DoxyParamCaption}
+\item[{{\bf Verb}}]{verb, }
+\item[{{\bf Noun}}]{noun}
+\end{DoxyParamCaption}
+)}}\label{functions_8h_a222ebfd6de1120c8eab86b7f3b60b881}
+
+\begin{DoxyParams}{Parameters}
+{\em verb} & \\
+\hline
+{\em noun} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{functions_8h_a204cd395ddf24d95c454e67f11f176d0}{\index{functions.\+h@{functions.\+h}!verify\+Exit@{verify\+Exit}}
+\index{verify\+Exit@{verify\+Exit}!functions.\+h@{functions.\+h}}
+\subsubsection[{verify\+Exit}]{\setlength{\rightskip}{0pt plus 5cm}char verify\+Exit (
+\begin{DoxyParamCaption}
+\item[{char}]{exit\+Choice}
+\end{DoxyParamCaption}
+)}}\label{functions_8h_a204cd395ddf24d95c454e67f11f176d0}
+
+\begin{DoxyParams}{Parameters}
+{\em exit\+Choice} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

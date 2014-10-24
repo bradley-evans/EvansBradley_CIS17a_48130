@@ -1,0 +1,84 @@
+\hypertarget{verbs_8h}{\section{C\+:/\+Users/\+Bradley Evans/\+Desktop/\+R\+C\+C/14\+F\+A\+L/\+C\+S\+C17\+A/\+Git\+Hub/\+Evans\+Bradley\+\_\+\+C\+I\+S17a\+\_\+48130/\+Project 1/verbs.h File Reference}
+\label{verbs_8h}\index{C\+:/\+Users/\+Bradley Evans/\+Desktop/\+R\+C\+C/14\+F\+A\+L/\+C\+S\+C17\+A/\+Git\+Hub/\+Evans\+Bradley\+\_\+\+C\+I\+S17a\+\_\+48130/\+Project 1/verbs.\+h@{C\+:/\+Users/\+Bradley Evans/\+Desktop/\+R\+C\+C/14\+F\+A\+L/\+C\+S\+C17\+A/\+Git\+Hub/\+Evans\+Bradley\+\_\+\+C\+I\+S17a\+\_\+48130/\+Project 1/verbs.\+h}}
+}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include \char`\"{}classes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}functions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}nouns.\+h\char`\"{}}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822}{Verb} \{ \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822a5ed33f7008771c9d49e3716aeaeca581}{Verb\+::ask}, 
+\hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822adbd73c2b545209688ed794c0d5413d5a}{Verb\+::quit}, 
+\hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822a8c4291f6956da81515a5c0caec2976d0}{Verb\+::look}, 
+\hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822afedb2d84cafe20862cb4399751a8a7e3}{Verb\+::invalid}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822}{Verb} \hyperlink{verbs_8h_a3e099b0b51568ce901ed226b5af1435e}{parse\+Verb} (const string \&verb)
+\item 
+void \hyperlink{verbs_8h_a093c7626f2fe58e46d1e3cba3c3217e7}{verb\+Proc} (\hyperlink{nouns_8h_a5590a51534fc71b6bb3cda6c2a5a84b0}{Noun} noun, \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822}{Verb} verb)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822}{Verb} $>$ \hyperlink{verbs_8h_af4965280c46cf57885fc7507e5eaa179}{known\+Verbs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{verbs_8h_ade0965e0a67628e635e5563810600822}{\index{verbs.\+h@{verbs.\+h}!Verb@{Verb}}
+\index{Verb@{Verb}!verbs.\+h@{verbs.\+h}}
+\subsubsection[{Verb}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Verb}\hspace{0.3cm}{\ttfamily [strong]}}}\label{verbs_8h_ade0965e0a67628e635e5563810600822}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{ask@{ask}!verbs.\+h@{verbs.\+h}}\index{verbs.\+h@{verbs.\+h}!ask@{ask}}\item[{\em 
+\hypertarget{verbs_8h_ade0965e0a67628e635e5563810600822a5ed33f7008771c9d49e3716aeaeca581}{ask}\label{verbs_8h_ade0965e0a67628e635e5563810600822a5ed33f7008771c9d49e3716aeaeca581}
+}]\index{quit@{quit}!verbs.\+h@{verbs.\+h}}\index{verbs.\+h@{verbs.\+h}!quit@{quit}}\item[{\em 
+\hypertarget{verbs_8h_ade0965e0a67628e635e5563810600822adbd73c2b545209688ed794c0d5413d5a}{quit}\label{verbs_8h_ade0965e0a67628e635e5563810600822adbd73c2b545209688ed794c0d5413d5a}
+}]\index{look@{look}!verbs.\+h@{verbs.\+h}}\index{verbs.\+h@{verbs.\+h}!look@{look}}\item[{\em 
+\hypertarget{verbs_8h_ade0965e0a67628e635e5563810600822a8c4291f6956da81515a5c0caec2976d0}{look}\label{verbs_8h_ade0965e0a67628e635e5563810600822a8c4291f6956da81515a5c0caec2976d0}
+}]\index{invalid@{invalid}!verbs.\+h@{verbs.\+h}}\index{verbs.\+h@{verbs.\+h}!invalid@{invalid}}\item[{\em 
+\hypertarget{verbs_8h_ade0965e0a67628e635e5563810600822afedb2d84cafe20862cb4399751a8a7e3}{invalid}\label{verbs_8h_ade0965e0a67628e635e5563810600822afedb2d84cafe20862cb4399751a8a7e3}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{verbs_8h_a3e099b0b51568ce901ed226b5af1435e}{\index{verbs.\+h@{verbs.\+h}!parse\+Verb@{parse\+Verb}}
+\index{parse\+Verb@{parse\+Verb}!verbs.\+h@{verbs.\+h}}
+\subsubsection[{parse\+Verb}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Verb} parse\+Verb (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{verb}
+\end{DoxyParamCaption}
+)}}\label{verbs_8h_a3e099b0b51568ce901ed226b5af1435e}
+\hypertarget{verbs_8h_a093c7626f2fe58e46d1e3cba3c3217e7}{\index{verbs.\+h@{verbs.\+h}!verb\+Proc@{verb\+Proc}}
+\index{verb\+Proc@{verb\+Proc}!verbs.\+h@{verbs.\+h}}
+\subsubsection[{verb\+Proc}]{\setlength{\rightskip}{0pt plus 5cm}void verb\+Proc (
+\begin{DoxyParamCaption}
+\item[{{\bf Noun}}]{noun, }
+\item[{{\bf Verb}}]{verb}
+\end{DoxyParamCaption}
+)}}\label{verbs_8h_a093c7626f2fe58e46d1e3cba3c3217e7}
+
+
+\subsection{Variable Documentation}
+\hypertarget{verbs_8h_af4965280c46cf57885fc7507e5eaa179}{\index{verbs.\+h@{verbs.\+h}!known\+Verbs@{known\+Verbs}}
+\index{known\+Verbs@{known\+Verbs}!verbs.\+h@{verbs.\+h}}
+\subsubsection[{known\+Verbs}]{\setlength{\rightskip}{0pt plus 5cm}map$<$ string, {\bf Verb} $>$ known\+Verbs}}\label{verbs_8h_af4965280c46cf57885fc7507e5eaa179}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+\{                                       
+    \{   \textcolor{stringliteral}{"ask"},      \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822a5ed33f7008771c9d49e3716aeaeca581}{Verb::ask}       \},  
+    \{   \textcolor{stringliteral}{"quit"},     \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822adbd73c2b545209688ed794c0d5413d5a}{Verb::quit}      \},  
+    \{   \textcolor{stringliteral}{"exit"},     \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822adbd73c2b545209688ed794c0d5413d5a}{Verb::quit}      \},
+    \{   \textcolor{stringliteral}{"look"},     \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822a8c4291f6956da81515a5c0caec2976d0}{Verb::look}      \},  
+    \{   \textcolor{stringliteral}{"examine"},  \hyperlink{verbs_8h_ade0965e0a67628e635e5563810600822a8c4291f6956da81515a5c0caec2976d0}{Verb::look}      \}
+\}
+\end{DoxyCode}

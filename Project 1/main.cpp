@@ -35,7 +35,8 @@ using namespace std;
  */
     const int MAXL = 50;    // maximum character array length
 
-int main() {
+int main() 
+{
     // Main Variables.
     char    command[MAXL];          // character array to store user command
     char    *ptrcmd = command;      // character pointer to read user command

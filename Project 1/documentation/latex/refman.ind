@@ -1,0 +1,79 @@
+\begin{theindex}
+
+  \item {ask}
+    \subitem {verbs.\+h}, \hyperpage{11}
+  \item {attack}
+    \subitem {nouns.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {base}
+    \subitem {nouns.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {currtime}
+    \subitem {Gameclock}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Dice}, \hyperpage{5}
+    \subitem {roll}, \hyperpage{5}
+  \item {downtick}
+    \subitem {Gameclock}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Gameclock}, \hyperpage{5}
+    \subitem {currtime}, \hyperpage{5}
+    \subitem {downtick}, \hyperpage{5}
+    \subitem {initialize}, \hyperpage{5}
+
+  \indexspace
+
+  \item {initialize}
+    \subitem {Gameclock}, \hyperpage{5}
+  \item {invalid}
+    \subitem {nouns.\+h}, \hyperpage{10}
+    \subitem {verbs.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {look}
+    \subitem {verbs.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {name}
+    \subitem {nouns.\+h}, \hyperpage{10}
+  \item {nouns.\+h}
+    \subitem {attack}, \hyperpage{10}
+    \subitem {base}, \hyperpage{10}
+    \subitem {invalid}, \hyperpage{10}
+    \subitem {name}, \hyperpage{10}
+    \subitem {suspect}, \hyperpage{10}
+
+  \indexspace
+
+  \item {quit}
+    \subitem {verbs.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {roll}
+    \subitem {Dice}, \hyperpage{5}
+
+  \indexspace
+
+  \item {suspect}
+    \subitem {nouns.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {verbs.\+h}
+    \subitem {ask}, \hyperpage{11}
+    \subitem {invalid}, \hyperpage{11}
+    \subitem {look}, \hyperpage{11}
+    \subitem {quit}, \hyperpage{11}
+
+\end{theindex}

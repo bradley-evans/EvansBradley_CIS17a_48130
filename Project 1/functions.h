@@ -17,6 +17,10 @@
 #include "cmdtree.h"
 using namespace std;
 // ------------------------
+
+/**
+ * 
+ */
 void localPause ()
 {
         cout << endl;
@@ -26,13 +30,20 @@ void localPause ()
         cout << endl;
 }
 
+/**
+ * 
+ * @param command
+ * @param MAXL
+ * @param noun
+ * @param verb
+ */
 void readInput (char* &command, const int MAXL, string &noun, string &verb) // take in the user's command
 {
-    int     i = 0;      // iterator 1
-    int     n = 0;      // iterator 2
+    int     i = 0;      ///< iterator 1
+    int     n = 0;      ///< iterator 2
     
-    char    cstrnoun[MAXL];         // cstring for the inbound noun
-    char    cstrverb[MAXL];         // cstring for the inbound verb
+    char    cstrnoun[MAXL];         ///< cstring for the inbound noun
+    char    cstrverb[MAXL];         ///< cstring for the inbound verb
     char    *nounptr = cstrnoun;    // cstring pointer, noun
     char    *verbptr = cstrverb;    // cstring pointer, verb
     int     inputLength;            // total length of the string
@@ -40,8 +51,8 @@ void readInput (char* &command, const int MAXL, string &noun, string &verb) // t
     cin.clear();
     cout    << "\nPlease enter your command. Use a verb followed by a noun such as 'ask name.'" << endl
             << "> ";
-    cin.getline(command,MAXL);          // get your command
-    inputLength = cin.gcount();         // how long was last input?
+    cin.getline(command,MAXL);          ///< get your command
+    inputLength = cin.gcount();         ///< how long was last input?
     cout    << "\nYour command was: " << command << endl;
        
     // Parse the command into a noun or a verb.
@@ -68,7 +79,11 @@ void readInput (char* &command, const int MAXL, string &noun, string &verb) // t
     verb = verbptr;
 }
 
-
+/**
+ * 
+ * @param exitChoice
+ * @return 
+ */
 char verifyExit(char exitChoice)
 {
     bool loop = true;
@@ -86,6 +101,12 @@ char verifyExit(char exitChoice)
     return ('0');
 }
 
+/**
+ * 
+ * @param verb
+ * @param noun
+ * @return 
+ */
 char validateInput (Verb verb, Noun noun)
 {
     char exitChoice = 'n';
@@ -99,8 +120,9 @@ char validateInput (Verb verb, Noun noun)
     }
     return('0');
 }
-
-
+    
+/**
+ */
 void initializeSuspect()
 {
     Dice dice;
@@ -117,6 +139,9 @@ void initializeSuspect()
     cout    << "Minimize: " << suspect.minimize
             << "Silence:  " << suspect.silence;
 }
+
+/**
+ */
 void introduction()
 {
     cmd_look_suspect();

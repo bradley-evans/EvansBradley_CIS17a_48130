@@ -17,31 +17,31 @@ using namespace std;
 
 struct Suspect_s {                      // Defines the suspect's statistics.     
     // The likelihood the suspect will take a certain action.
-    int     minimize,       // give minimum amount of cooperation, delay tactic
-            silence,        // ignore interrogation
-            distort,        // misinformation, with some truth
-            distract;       // distract
+    int     minimize,       ///< give minimum amount of cooperation, delay tactic
+            silence,        ///< ignore interrogation
+            distort,        ///< misinformation, with some truth
+            distract;       ///< distract
     // primary three responses
-    int     comply,         // answer at all
-            honest,         // be honest
-            deception;      // be deceptive
+    int     comply,         ///< answer at all
+            honest,         ///< be honest
+            deception;      ///< be deceptive
     // other modifiers
-    int     exhaustion,     // tired
-            pain,           // result of torture
-            hatred;         // hatred, willingness to do anything to deny information
+    int     exhaustion,     ///< tired
+            pain,           ///< result of torture
+            hatred;         ///< hatred, willingness to do anything to deny information
 } suspect;
 
-class Gameclock {                       // Tracks in game time remaining
+class Gameclock {                       ///< Tracks in game time remaining
     int timeleft;
 public:
     void downtick(int);
     int currtime();
     void initialize();
 };
-void Gameclock::downtick(int loss) {    // To decrement the time counter.
+void Gameclock::downtick(int loss) {    ///< To decrement the time counter.
     timeleft = timeleft - loss;
 }
-int Gameclock::currtime() {             // Displays time remaining.
+int Gameclock::currtime() {             ///< Displays time remaining.
     return(timeleft);
 }
 void Gameclock::initialize() {

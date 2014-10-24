@@ -45,7 +45,7 @@ Verb parseVerb(const string &verb)
     if ( n == knownVerbs.end() ) {
         return Verb::invalid;
     }
-    return n->second;
+    ♣
 }
 
 /*
@@ -53,7 +53,7 @@ Verb parseVerb(const string &verb)
  */
 
 void verbProc (Noun noun, Verb verb) {
-    switch (noun) {
+    switch (verb) {
         case Verb::ask:     ask(noun);
         case Verb::look:    look(noun);
     }
