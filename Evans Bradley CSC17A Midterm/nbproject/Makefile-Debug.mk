@@ -36,7 +36,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/evans_standard.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/prob_1.o \
+	${OBJECTDIR}/prob_2.o \
+	${OBJECTDIR}/prob_3.o \
+	${OBJECTDIR}/prob_4.o \
+	${OBJECTDIR}/prob_5.o \
+	${OBJECTDIR}/prob_6.o
 
 
 # C Compiler Flags
@@ -72,6 +78,36 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/prob_1.o: prob_1.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/prob_1.o prob_1.cpp
+
+${OBJECTDIR}/prob_2.o: prob_2.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/prob_2.o prob_2.cpp
+
+${OBJECTDIR}/prob_3.o: prob_3.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/prob_3.o prob_3.cpp
+
+${OBJECTDIR}/prob_4.o: prob_4.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/prob_4.o prob_4.cpp
+
+${OBJECTDIR}/prob_5.o: prob_5.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/prob_5.o prob_5.cpp
+
+${OBJECTDIR}/prob_6.o: prob_6.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/prob_6.o prob_6.cpp
 
 # Subprojects
 .build-subprojects:

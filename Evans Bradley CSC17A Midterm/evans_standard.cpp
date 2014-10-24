@@ -2,8 +2,7 @@
 
 void displayMenu (char& choice)
 {
-	bool	choiceValid = false; // Is the menu input valid?
-        bool    isArrayInMem = false; // Is there an array in memory?
+	bool	choiceValid = false;        // Is the menu input valid?
 	
 	do {
 		cout	<< endl;
@@ -12,29 +11,31 @@ void displayMenu (char& choice)
 			<< "*****************************************" << endl;
 
 		cout	<< "Please select from the following options:" << endl
-                        << "[1] - Select / create a text file" << endl
-                        << "[2] - Display contents of file" << endl
-                        << "[3] - Search the file for a string" << endl
-                        << "[4] - Encrypt/decrypt the file" << endl /*
-                        << "[5] - Write a pointer array of integers to the file" << endl 
-                        << "[6] - Write text to the file" << endl                
+                        << "[1] - Problem 1" << endl
+                        << "[2] - Problem 2" << endl
+                        << "[3] - Problem 3" << endl
+                        << "[4] - Problem 4" << endl 
+                        << "[5] - Problem 5" << endl 
+                        << "[6] - Problem 6" << endl                /*               
                         << "[7] - " << endl
                         << "[8] - " << endl
-                        << "[9] - " << endl                                            
-                        << "[0] - Exit the program." << endl        */
-                        << endl;
+                        << "[9] - " << endl                         */                   
+                        << "[0] - Exit the program." << endl        
+                        << endl
+                        << "> ";
 		cin	>> choice;
+                cout    << endl;
                 
 		if	(  choice == '1'    // Available menu options
 			|| choice == '2' 
 			|| choice == '3' 
-			|| choice == '4'        /*
+			|| choice == '4'        
 			|| choice == '5'        
-			|| choice == '6' 
-			|| choice == '7' 
+			|| choice == '6'        /*
+			|| choice == '7'        
 			|| choice == '8'
-                        || choice == '9' 
-                        || choice == '0'        */
+                        || choice == '9'        */
+                        || choice == '0'        
                         )
 		{
 			choiceValid = true;
@@ -71,7 +72,8 @@ bool replayFunc (char& localChoice)
 void localPause ()
 {
         cout << endl;
-        cin.ignore();
+        cin.clear();                        // clear the buffer to prevent errors
+        cin.ignore(10000,'\n');  
         cout << "Press [ENTER] to continue...";
         cin.get();
         cout << endl;

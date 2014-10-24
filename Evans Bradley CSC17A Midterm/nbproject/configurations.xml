@@ -5,6 +5,12 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>evans_standard.h</itemPath>
+      <itemPath>prob_1.h</itemPath>
+      <itemPath>prob_2.h</itemPath>
+      <itemPath>prob_3.h</itemPath>
+      <itemPath>prob_4.h</itemPath>
+      <itemPath>prob_5.h</itemPath>
+      <itemPath>prob_6.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -15,6 +21,12 @@
                    projectFiles="true">
       <itemPath>evans_standard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>prob_1.cpp</itemPath>
+      <itemPath>prob_2.cpp</itemPath>
+      <itemPath>prob_3.cpp</itemPath>
+      <itemPath>prob_4.cpp</itemPath>
+      <itemPath>prob_5.cpp</itemPath>
+      <itemPath>prob_6.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -47,6 +59,30 @@
       </item>
       <item path="midterm_problem_description.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="prob_1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_4.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_4.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_5.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_5.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_6.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_6.h" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -75,6 +111,30 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="midterm_problem_description.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_4.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_4.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_5.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_5.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="prob_6.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="prob_6.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

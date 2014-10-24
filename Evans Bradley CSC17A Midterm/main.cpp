@@ -9,29 +9,32 @@
 
 //HEADERS
 #include "evans_standard.h"
+#include "prob_1.h"
+#include "prob_2.h"
 using namespace std;	
 
 int main() 				
 {
 	char    choice;             // menu option selected by user
 	bool    isExit = false;     // Did the user select 'exit'?
-        int     i = 0;                  // iterator
 
 	cout	<< "Programmed by:" << endl
                 << "Bradley Evans, Student #2465773" << endl
                 << "For Prof. M. Lehr, CIS 17A, 14FAL" << endl
                 << endl
-                << "MIDTERM SOLUTIONS" << endl; 
+                << "MIDTERM SOLUTIONS -- OCT 24 2014" << endl; 
         
 	do {
 		displayMenu (choice);
-		switch (choice)	{
+                switch (choice)	{
 			case '1':
                                 cout	<< endl;
+                                solution_1();
                                 localPause();
 				break;
                         case '2':
                                 cout	<< endl;
+                                solution_2();
                                 localPause();
                                 break;
                         case '3':
@@ -64,7 +67,6 @@ int main()
                                 break;
                         case '0':
                                 cout	<< endl;
-                                localPause();
                                 isExit = true;
                                 break;
                 }
