@@ -20,14 +20,13 @@ individually.  All the digits must be read with one cin statement.
 
 
 void solution_4() {
-    encryptApp();
-}
-
-void encryptApp() {
     char **pt;
+    char charstore;
     int rows = 0;
     int i = 0;
+    int j = 0;
     bool isValid = false;
+    int **pt_int;
     
     
     cout    << "Number of four digit integers you wish to encrypt:" << endl
@@ -38,36 +37,111 @@ void encryptApp() {
         pt[i] = new char[4];
     }
     clearbuffer();
-    cout    << "ENTER THE INTEGERS FOR ENCRYPTION. ONLY FOUR DIGIT INTEGERS ARE ACCEPTED:" << endl;
+    cout    << "ENTER THE INTEGERS FOR ENCRYPTION. ONLY FOUR DIGIT INTEGERS FROM 1-7 ARE ACCEPTED:" << endl;
     takeArray(pt,rows);
-    encrypt(pt,rows);
-    //showArray(pt,rows);)
+    pt_int = new int*[rows];
+    for (i=0;i<rows;i++){
+        pt_int[i] = new int[4];
+    }
+    for (i=0;i<rows;i++){
+        for (j=0;j<4;j++) {
+            charstore = pt[i][j];
+            pt_int[i][j] = ((int)charstore - 48);
+        }
+    }
     for (i=0;i<rows;i++) {
         delete []pt[i];
     }
     delete []pt;
+    encrypt(pt_int,rows);
+    decrypt(pt_int,rows);
+    
+    
+    //showArray(pt,rows);
+    for (i=0;i<rows;i++) {
+        delete []pt_int[i];
+    }
+    delete []pt_int;
 }
 
-void encrypt(char** &pt, int rows) {
+void encrypt(int** &pt, int rows) {
     int i = 0;
     int j = 0;
     int num1 = 0;
     
+    cout    << "PT: ";
     for (i=0;i<rows;i++) {
         for (j=0;j<4;j++) {
-            pt[i][j] = num1;
-            num1 = (num1 + 3) % 8;
+            cout << pt[i][j];
         }
-        pt[i][0]= num1;
+        cout << " | ";
+        for (j=0;j<4;j++) {
+            pt[i][j] = (pt[i][j] + 3)%8;
+        }
+        num1 = pt[i][0];
         pt[i][0]= pt[i][1];
-        pt[i][1]= num1;              
+        pt[i][1]= num1;    
+        num1 = pt[i][2];
+        pt[i][2]= pt[i][3];
+        pt[i][3]= num1;
     }
+    cout    << endl;
+    cout    << "CT: ";
+    for (i=0;i<rows;i++) {
+        for (j=0;j<4;j++) {
+            cout << pt[i][j];
+        }
+        cout << " | ";
+    }
+    cout << endl;
 }
 
-void decryptApp() {
+void decrypt(int** &pt, int rows) {
+    int i = 0;
+    int j = 0;
+    int num1 = 0;
     
+    cout    << endl
+            << "Decrypting:" << endl;
+    
+    cout    << "CT: ";
+    for (i=0;i<rows;i++) {
+        for (j=0;j<4;j++) {
+            cout << pt[i][j];
+        }
+        cout << " | ";
+        for (j=0;j<4;j++) {
+            switch (pt[i][j]) {
+                case 0: pt[i][j] = 5;break;
+                case 1: pt[i][j] = 6;break;
+                case 2: pt[i][j] = 7;break;
+                case 3: pt[i][j] = 8;break;
+                case 4: pt[i][j] = 1;break;
+                case 5: pt[i][j] = 2;break;
+                case 6: pt[i][j] = 3;break;
+                case 7: pt[i][j] = 4;break;
+                case 8: cout << "Error!"; return;
+                case 9: cout << "Error!"; return;
+            }
+        }
+        num1 = pt[i][0];
+        pt[i][0]= pt[i][1];
+        pt[i][1]= num1;    
+        num1 = pt[i][2];
+        pt[i][2]= pt[i][3];
+        pt[i][3]= num1; 
+    }
+    cout << endl;
+    cout << "PT: ";
+    for (i=0;i<rows;i++) {
+        for (j=0;j<4;j++) {
+            cout << pt[i][j];
+        }
+        cout << " | ";
+    }
+    cout << endl;
 }
-
+// By "all the digits" I assume you mean "all the digits of a single integer," so here...
 void takeArray(char** &pt, int rows) {
     int i = 0;
     int j = 0;
@@ -78,15 +152,21 @@ void takeArray(char** &pt, int rows) {
         do {
             isValid = true;
             cout << "INPUT INTEGER " << counter << ": ";
-                cin.getline(pt[i],1000);
-                j = cin.gcount();
-                if (j > 5) {
-                    cout << "INVALID INPUT DETECTED! Please re-enter ";
+            cin.getline(pt[i],1000);
+            j = cin.gcount();
+            if (j > 5) {
+                cout << "INVALID INPUT DETECTED! Please re-enter ";
+                isValid = false;
+            }
+            for (j=0;j<5;j++) {
+                if ( pt[i][j] == '8' || 
+                    pt[i][j] == '9' || 
+                    pt[i][j] == '0' ) {
+                    cout << "INVALID INPUT DETECTED! Only use numbers 1-7! " << endl;
                     isValid = false;
-                    for (j=0;j<5;j++) {
-                        pt[i][j] = '0';
-                    }
+                    j=5;
                 }
+            }
             for (j=0;j<4;j++) {
                 if (!isdigit(pt[i][j])) { 
                     isValid = false;
@@ -100,6 +180,3 @@ void takeArray(char** &pt, int rows) {
     }
 }
 
-void showArray (char** pt,int rows) {
-    
-}

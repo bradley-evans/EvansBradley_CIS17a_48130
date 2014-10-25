@@ -24,7 +24,6 @@ dynamic array creation for the mode when you exit the problem.
 #include "prob_3.h"
 using namespace std;
 
-
 struct StatsResult  {       ///< Struct required by problem description.
     float avg;
     float median;
@@ -38,24 +37,29 @@ void solution_3() {
     int size=0;
     float mean = 0;
     float median = 0;
-    int *intarray;      // this is raw input
+    int *intarray;      // this is raw input, later sorted
     int *listmodes;     // this is the processed list of only modes
-    int *sortedArr;     // this is sorted for processing
     int i=0;
-    int numModes;
-    int maxoccurs;
+    int numModes=0;
+    int maxoccurs=0;
     
     takeIntArray(intarray, size);
     mean = findMean(intarray,size);
-    median = findMedian(intarray,size);
-    sortedArr = new int[size];
-    sortArray(sortedArr,size);
-    numModes = findMode(sortedArr,size,listmodes,maxoccurs);
+    median = findMedian(intarray,size);    
+    sortArray(intarray,size);
+    findMode(intarray,size,listmodes,maxoccurs,numModes);
+    /*
+    cout << "Array sorted:    | ";
+    for (i=0;i<size;i++) { cout << intarray[i] << " | "; }
+    cout << endl;
+    cout << "Mode array: ";
+    for (i=0;i<numModes;i++) { cout << listmodes[i] << " occurs " << maxoccurs << " | "; }
+    cout << endl;
+    */
     //avgmedmode(listmodes,numModes,mean,median,maxoccurs); // Not exactly as described in the problem description, but there you go.
     avgmedmode_ (listmodes,numModes,mean,median,maxoccurs); // Workaround.
     
     delete []intarray;
-    delete []sortedArr;
     delete []listmodes;
 }
 
@@ -78,6 +82,7 @@ StatsResult avgmedmode(int *listmodes, int numModes, float mean, float median, i
     return (result);
 }
 */
+
 void displayResult() {
     int i = 0;
     cout    << "RESULTS ===========" << endl
@@ -97,14 +102,13 @@ void takeIntArray(int* &intarray, int &intcount) { ///< Take an array as a c-str
     char *ptrintarr = cs_intarr;
     char *cptr;
     int i = 0;
-    int size_h = 0;
+    int size  = 0;
     
     clearbuffer();
     cout    << "Please enter your array. " << endl
             << "> ";
     cin.getline(ptrintarr,90,'\n');
-    size_h = cin.gcount();  
-    cout << size_h;
+    size = cin.gcount();
     
     for (i=0;i<size;i++) { if (ptrintarr[i]==' ') {intcount++;} }
     intcount++;
@@ -151,13 +155,12 @@ float findMean(int *arr, int arrSize) {
     return (mean);
 }
 
-int findMode (int *arr, int size, int* &listmodes, int &currMax) {
+void findMode (int *arr, int size, int* &listmodes, int &currMax,int &numModes) {
     int numUnique = 1;
     int **mode;
     int i = 0;
     int j = 0;
-    int numModes = 0;
-       
+    
     // *arr is a sorted array
     // How many unique integers do I have?
     for (i=1;i<size;i++) {
@@ -171,9 +174,9 @@ int findMode (int *arr, int size, int* &listmodes, int &currMax) {
         mode[i][0] = 0;
         mode[i][1] = 0;
     }
-    // Count them up
     mode[0][0]=arr[0];
     j = 0;
+    // Count up the frequencies of each number and store.
     for (i=0;i<size;i++) {
         if (mode[0][j]==arr[i]) {   mode[1][j]++;
         }
@@ -198,15 +201,14 @@ int findMode (int *arr, int size, int* &listmodes, int &currMax) {
             j++;
         }
     }
-    
     for (i=0;i<numUnique;i++) {
         delete []mode[i];
     }
     delete []mode;
-    return numModes;
+    
 }
 
-void sortArray (int *arr, int arrSize) {
+void sortArray (int* &arr, int arrSize) {
     int i=0;
     int j=0;
     int max=0;
@@ -225,15 +227,27 @@ void sortArray (int *arr, int arrSize) {
         }
     }
 }
-void avgmedmode_(int *listmodes, int numModes, float mean, float median, int maxoccurs) {    
-    int i=0;
 
-    result_.avg = mean;
-    result_.maxFreq = numModes;
+/* This function didn't work either and I could see no obvious reason why. */
+void avgmedmode_(int *listmodes, int numModes, float mean, float median, int maxoccurs) {    
+    int i=0;   
+    StatsResult result_;
+ 
+    result_.avg = mean;      
+    cout << "Mean            : " << result_.avg << endl;
     result_.median = median;
+    cout << "Median          : " << result_.median << endl;
+    cout << "Modes           : "; 
+    result_.mode = new int[numModes];
     for (i=0;i<numModes;i++) {
-        result_.mode[i] = listmodes[i];
+        result_.mode[i]=listmodes[i];
+        cout << result_.mode[i];
     }
+    cout << endl;
     result_.nModes = numModes;
-    result_.maxFreq = maxoccurs;
+    cout << "Number of Modes : " << result_.nModes << endl;
+    //result_.maxFreq = maxoccurs;
+    //cout << "Frequency       : " << result_.maxFreq << endl;
+    delete []result_.mode;
+    
 }

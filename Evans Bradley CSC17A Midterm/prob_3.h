@@ -19,8 +19,8 @@ void displayResult() ;
 void takeIntArray(int* &intarray, int &intcount) ;
 float findMedian (int *arr, int arrSize) ;
 float findMean(int *arr, int arrSize) ;
-int findMode (int *arr, int size, int* &listmodes, int &currMax) ;
-void sortArray (int *arr, int arrSize) ;
+void findMode (int *arr, int size, int* &listmodes, int &currMax, int &numModes);
+void sortArray (int *&arr, int arrSize) ;
 void avgmedmode_(int *listmodes, int numModes, float mean, float median, int maxoccurs) ;
 
 #endif	/* PROB_3_H */
