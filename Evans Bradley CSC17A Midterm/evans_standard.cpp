@@ -78,3 +78,10 @@ void localPause ()
         cin.get();
         cout << endl;
 }
+
+void clearbuffer()
+{
+    cout << "\n...clearing the buffer (press enter if you get stuck here)...\n";
+    cin.ignore(10000,'\n');
+    cout.setf( ios::fixed );
+}

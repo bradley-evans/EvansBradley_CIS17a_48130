@@ -5,21 +5,16 @@
  * Created on October 24, 2014, 2:00 AM
  */
 
-#ifndef PROB_1_H
-#define	PROB_1_H
+#ifndef PROB_5_H
+#define	PROB_5_H
 
 #include <iostream>
-#include <iomanip>
-#include <cctype>
+#include <limits> 
+#include "evans_standard.h"
 using namespace std;
 
+void solution_5();
+double factorial(int n);
 
-
-void solution_1();
-void getAcctNum ();
-void makeWithdraw();
-void makeDeposit();
-void viewBal();
-
-#endif	/* PROB_1_H */
+#endif	/* PROB_5_H */
 

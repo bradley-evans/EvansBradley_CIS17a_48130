@@ -5,21 +5,21 @@
  * Created on October 24, 2014, 2:00 AM
  */
 
-#ifndef PROB_1_H
-#define	PROB_1_H
+#ifndef PROB_4_H
+#define	PROB_4_H
 
 #include <iostream>
-#include <iomanip>
 #include <cctype>
+#include "evans_standard.h"
 using namespace std;
 
-
-
-void solution_1();
-void getAcctNum ();
-void makeWithdraw();
-void makeDeposit();
-void viewBal();
+void solution_4();
+void encryptApp();
+void decryptApp();
+void encrypt(char** &pt, int rows);
+void decrypt(char** &pt, int rows);
+void showArray(char** pt, int rows);
+void takeArray(char** &pt, int rows);
 
 #endif	/* PROB_1_H */
 

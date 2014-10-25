@@ -10,18 +10,17 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include "evans_standard.h"
 using namespace std;
 
-struct statsResult  ///< Struct required by problem description.
-{
-    float avg;
-    float median;
-    int *mode;   //array containing the modes
-    int nModes;  //number of modes in the array
-    int maxFreq; //max frequency of modes
-};
+void solution_3() ;
+void takeIntArray(int* &intarray, int &size) ;
+float findMedian (int *arr, int arrSize);
+float findMean(int *arr, int arrSize) ;
+void findMode (int *arr, int size) ;
+void sortArray (int *arr, int arrSize) ;
 
-void solution_3();
 
 #endif	/* PROB_3_H */
 

@@ -11,6 +11,9 @@
 #include "evans_standard.h"
 #include "prob_1.h"
 #include "prob_2.h"
+#include "prob_3.h"
+#include "prob_4.h"
+#include "prob_5.h"
 using namespace std;	
 
 int main() 				
@@ -38,15 +41,18 @@ int main()
                                 localPause();
                                 break;
                         case '3':
-                                cout	<< endl;    
+                                cout	<< endl;
+                                solution_3();
                                 localPause();
                                 break; 
                         case '4':
                                 cout	<< endl;
+                                solution_4();
                                 localPause();
                                 break;
                         case '5':
                                 cout	<< endl;
+                                solution_5();
                                 localPause();
                                 break;
                         case '6':
