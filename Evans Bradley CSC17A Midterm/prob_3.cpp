@@ -22,57 +22,90 @@ dynamic array creation for the mode when you exit the problem.
  */
 
 #include "prob_3.h"
+using namespace std;
 
 
-struct statsResult  ///< Struct required by problem description.
-{
+struct StatsResult  {       ///< Struct required by problem description.
     float avg;
     float median;
     int *mode;   //array containing the modes
     int nModes;  //number of modes in the array
-    int maxFreq; //max frequency of modes
-} ;
-
-statsResult *avgMedMode(int *,int); 
+    int maxFreq; //max frequency of modes 
+} result_;
 
 void solution_3() {
-    int *intarray;
-    int size = 0;
+
+    int size=0;
     float mean = 0;
     float median = 0;
-    int *modeArr;
+    int *intarray;      // this is raw input
+    int *listmodes;     // this is the processed list of only modes
+    int *sortedArr;     // this is sorted for processing
     int i=0;
+    int numModes;
+    int maxoccurs;
     
     takeIntArray(intarray, size);
     mean = findMean(intarray,size);
     median = findMedian(intarray,size);
-    modeArr = new int[size];
-    for (i=0;i<size;i++) { modeArr[i]=intarray[i]; }
-    for (i=0;i<size;i++) { cout << modeArr[i] << " * "; }
-    sortArray(modeArr,size);
-    //findMode(modeArr,size);
-    findMode2(modeArr,size);
-    
+    sortedArr = new int[size];
+    sortArray(sortedArr,size);
+    numModes = findMode(sortedArr,size,listmodes,maxoccurs);
+    //avgmedmode(listmodes,numModes,mean,median,maxoccurs); // Not exactly as described in the problem description, but there you go.
+    avgmedmode_ (listmodes,numModes,mean,median,maxoccurs); // Workaround.
     
     delete []intarray;
-    delete []modeArr;
+    delete []sortedArr;
+    delete []listmodes;
 }
 
+/* This function didn't work, and I could see no obvious reason at all why, so I did a workaround.
+ * Left here for you to see what I might have done wrong. 
+ * 
+StatsResult avgmedmode(int *listmodes, int numModes, float mean, float median, int maxoccurs) {
+    StatsResult result;
+    int i=0;
+  
+    result.avg = mean;
+    result.maxFreq = numModes;
+    result.median = median;
+    for (i=0;i<numModes;i++) {
+        result.mode[i] = listmodes[i];
+    }
+    result.nModes = numModes;
+    result.maxFreq = maxoccurs;
+    
+    return (result);
+}
+*/
+void displayResult() {
+    int i = 0;
+    cout    << "RESULTS ===========" << endl
+            << "MEAN:            " << result_.avg << endl
+            << "NUMBER OF MODES: " << result_.maxFreq << endl
+            << "MODES:           ";
+            for (i=0;i<result_.maxFreq;i++) {
+                cout << result_.mode[i] << " " << endl;
+            }
+    cout    << "MEDIAN:          " << result_.median << endl
+            << "MAX FREQUENCY:   " << result_.maxFreq << endl;
+            
+}
 
 void takeIntArray(int* &intarray, int &intcount) { ///< Take an array as a c-string and store it as an array of integers in structure.
-    char cs_intarr[100];
+    char cs_intarr[90];
     char *ptrintarr = cs_intarr;
     char *cptr;
     int i = 0;
-    int size = 0;
-
+    int size_h = 0;
+    
     clearbuffer();
     cout    << "Please enter your array. " << endl
             << "> ";
-    cin.getline(ptrintarr,100,'\n');
-    // Count up the integers by counting up spaces
-    size = cin.gcount();
-    cout << "size: " << size;
+    cin.getline(ptrintarr,90,'\n');
+    size_h = cin.gcount();  
+    cout << size_h;
+    
     for (i=0;i<size;i++) { if (ptrintarr[i]==' ') {intcount++;} }
     intcount++;
     intarray = new int[intcount];
@@ -118,11 +151,12 @@ float findMean(int *arr, int arrSize) {
     return (mean);
 }
 
-void findMode2 (int *arr, int size) {
+int findMode (int *arr, int size, int* &listmodes, int &currMax) {
     int numUnique = 1;
-    int **modeArr;
+    int **mode;
     int i = 0;
     int j = 0;
+    int numModes = 0;
        
     // *arr is a sorted array
     // How many unique integers do I have?
@@ -131,81 +165,46 @@ void findMode2 (int *arr, int size) {
             numUnique++;
         }
     }
-    modeArr = new int*[size];
+    mode = new int*[numUnique];
     for (i=0;i<numUnique;i++) {
-        modeArr[i] = new int[2];
-        modeArr[i][0] = 0;
-        modeArr[i][1] = 0;
+        mode[i] = new int[2];
+        mode[i][0] = 0;
+        mode[i][1] = 0;
     }
     // Count them up
-    modeArr[0][0]=arr[0];
+    mode[0][0]=arr[0];
     j = 0;
     for (i=0;i<size;i++) {
-        if (modeArr[0][j]==arr[i]) {    modeArr[1][j]++;
-        cout << " found " << modeArr[1][j];
+        if (mode[0][j]==arr[i]) {   mode[1][j]++;
         }
-        if (modeArr[0][j]!=arr[i]) {    j++;
-                                        modeArr[1][j]++;
-                                        modeArr[0][j]=arr[i];
+        if (mode[0][j]!=arr[i]) {   j++;
+                                    mode[1][j]++;
+                                    mode[0][j]=arr[i];
         }
     }
+    // find max mode
     for (i=0;i<numUnique;i++) {
-        cout << modeArr[0][i] << " ";
+        if (mode[1][i] > currMax) { currMax = mode[1][i];}
     }
-    cout << endl;
+    // find num of max mode occurances
     for (i=0;i<numUnique;i++) {
-        cout << modeArr[1][i] << " ";
+        if (mode[1][i] == currMax) { numModes++; }
     }
-    cout << endl;
+    j = 0;
+    listmodes = new int[numModes];
     for (i=0;i<numUnique;i++) {
-        delete []modeArr[i];
+        if (mode[1][i]== currMax) {
+            listmodes[j] = mode[0][i];
+            j++;
+        }
     }
-    delete []modeArr;
-}
-
-void findMode (int *arr, int size) {
     
-    int     i,j,k,m;                    ///< Iterators
-    int     count;                      ///< Number of occurances of a particular integer
-    int     max = 0;
-    int     no_mode = 0;                ///< Tests for the absence of a mode.
-    int     numModes = 0;
-    int     currnum;
-    int     modearr[size];
-    
-    for (i=0;i<size;i++) { modearr[i]=0; }
-    for(k=0;k<size;k++) {                         
-        count=0;
-        currnum = arr[k];                         
-        for(i=k; i<size; i++) {                   
-            if(currnum==arr[i])
-                count++;                          
-        } 
-        modearr[k]=count;                        
-        if (count>=2) {                          
-            no_mode++;
-        }
+    for (i=0;i<numUnique;i++) {
+        delete []mode[i];
     }
-    if (no_mode==0) {
-        modearr[0] = -1;     // Placeholder value for an array with no mode.
-        return;
-    }
-    for(j=0;j<size;j++) {   
-	if(modearr[j]>max) { max=modearr[j]; }
-        
-        for(m=0; m<size; m++) {
-            if(max==modearr[m]) { numModes++; }
-        }
-        cout<<"This data set has " << numModes << " mode(s)" <<endl;//Prints out how many modes there are
-        for(m=0; m<size; m++) {
-            if(max==modearr[m]) {
-                cout<< "The value " << arr[m] << " appeared " << modearr[m] << " times in the data set\n" << endl;
-            }
-        }
-        return;
-    }
+    delete []mode;
+    return numModes;
 }
-
 
 void sortArray (int *arr, int arrSize) {
     int i=0;
@@ -225,4 +224,16 @@ void sortArray (int *arr, int arrSize) {
             }                
         }
     }
+}
+void avgmedmode_(int *listmodes, int numModes, float mean, float median, int maxoccurs) {    
+    int i=0;
+
+    result_.avg = mean;
+    result_.maxFreq = numModes;
+    result_.median = median;
+    for (i=0;i<numModes;i++) {
+        result_.mode[i] = listmodes[i];
+    }
+    result_.nModes = numModes;
+    result_.maxFreq = maxoccurs;
 }

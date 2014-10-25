@@ -4,12 +4,22 @@
         <activeConfTypeElem>1</activeConfTypeElem>
         <activeConfIndexElem>0</activeConfIndexElem>
     </data>
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>main.cpp</url>
+            <bookmark id="1">
+                <name/>
+                <line>45</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/midterm_problem_description.txt</file>
-            <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/prob_2.cpp</file>
+            <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/prob_4.cpp</file>
             <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/main.cpp</file>
+            <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/prob_3.cpp</file>
+            <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/prob_3.h</file>
             <file>file:/C:/Users/Bradley%20Evans/Desktop/RCC/14FAL/CSC17A/GitHub/EvansBradley_CIS17a_48130/Evans%20Bradley%20CSC17A%20Midterm/evans_standard.cpp</file>
         </group>
     </open-files>

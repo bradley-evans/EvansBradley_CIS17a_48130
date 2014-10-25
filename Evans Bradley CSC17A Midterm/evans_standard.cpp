@@ -82,6 +82,7 @@ void localPause ()
 void clearbuffer()
 {
     cout << "\n...clearing the buffer (press enter if you get stuck here)...\n";
+    cin.clear();
     cin.ignore(10000,'\n');
     cout.setf( ios::fixed );
 }

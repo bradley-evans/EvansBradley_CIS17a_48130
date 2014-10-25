@@ -37,7 +37,7 @@ int main()
                                 localPause();
 				break;
                         case '2':
-                                cout	<< endl;
+                                //cout	<< endl;
                                 solution_2();
                                 localPause();
                                 break;

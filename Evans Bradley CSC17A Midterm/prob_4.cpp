@@ -18,6 +18,7 @@ individually.  All the digits must be read with one cin statement.
 
 #include "prob_4.h"
 
+
 void solution_4() {
     encryptApp();
 }

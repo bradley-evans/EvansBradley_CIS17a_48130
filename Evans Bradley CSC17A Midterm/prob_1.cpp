@@ -20,10 +20,10 @@
 #include "prob_1.h"
 
 struct Account {
-    char    acctnumber[5] = "";     ///< User's account number. Must only be five digits!
-    float   balance = 1000;         ///< User's bank balance at the beginning of the month.
-    float   totalWithdraw = 0;      ///< Total value of all (withdrawl) checks input by user this month.
-    float   totalDeposit = 0;       ///< Total value of all the user's deposits for the month
+    char    acctnumber[5];     ///< User's account number. Must only be five digits!
+    float   balance;         ///< User's bank balance at the beginning of the month.
+    float   totalWithdraw;      ///< Total value of all (withdrawl) checks input by user this month.
+    float   totalDeposit;       ///< Total value of all the user's deposits for the month
 } customer;
 
 void solution_1() {
