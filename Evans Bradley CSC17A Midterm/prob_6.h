@@ -5,21 +5,13 @@
  * Created on October 24, 2014, 2:00 AM
  */
 
-#ifndef PROB_1_H
-#define	PROB_1_H
+#ifndef PROB_6_H
+#define	PROB_6_H
 
 #include <iostream>
-#include <iomanip>
-#include <cctype>
 using namespace std;
 
+void solution_6();
 
-
-void solution_1();
-void getAcctNum ();
-void makeWithdraw();
-void makeDeposit();
-void viewBal();
-
-#endif	/* PROB_1_H */
+#endif	/* PROB_6_H */
 

@@ -48,8 +48,10 @@ void solution_3() {
     median = findMedian(intarray,size);
     modeArr = new int[size];
     for (i=0;i<size;i++) { modeArr[i]=intarray[i]; }
+    for (i=0;i<size;i++) { cout << modeArr[i] << " * "; }
     sortArray(modeArr,size);
-    findMode(modeArr,size);
+    //findMode(modeArr,size);
+    findMode2(modeArr,size);
     
     
     delete []intarray;
@@ -57,19 +59,20 @@ void solution_3() {
 }
 
 
-void takeIntArray(int* &intarray, int &size) { ///< Take an array as a c-string and store it as an array of integers in structure.
+void takeIntArray(int* &intarray, int &intcount) { ///< Take an array as a c-string and store it as an array of integers in structure.
     char cs_intarr[100];
     char *ptrintarr = cs_intarr;
     char *cptr;
     int i = 0;
-    int intcount = 0;
+    int size = 0;
 
     clearbuffer();
     cout    << "Please enter your array. " << endl
             << "> ";
-    cin.getline(ptrintarr,100);
+    cin.getline(ptrintarr,100,'\n');
     // Count up the integers by counting up spaces
     size = cin.gcount();
+    cout << "size: " << size;
     for (i=0;i<size;i++) { if (ptrintarr[i]==' ') {intcount++;} }
     intcount++;
     intarray = new int[intcount];
@@ -80,6 +83,7 @@ void takeIntArray(int* &intarray, int &size) { ///< Take an array as a c-string 
     }
     cout << "Array in memory: | ";
     for (i=0;i<intcount;i++) { cout << intarray[i] << " | "; }
+    cout << endl;
     
 }
 
@@ -114,6 +118,50 @@ float findMean(int *arr, int arrSize) {
     return (mean);
 }
 
+void findMode2 (int *arr, int size) {
+    int numUnique = 1;
+    int **modeArr;
+    int i = 0;
+    int j = 0;
+       
+    // *arr is a sorted array
+    // How many unique integers do I have?
+    for (i=1;i<size;i++) {
+        if (arr[i] != arr[i-1]) {
+            numUnique++;
+        }
+    }
+    modeArr = new int*[size];
+    for (i=0;i<numUnique;i++) {
+        modeArr[i] = new int[2];
+        modeArr[i][0] = 0;
+        modeArr[i][1] = 0;
+    }
+    // Count them up
+    modeArr[0][0]=arr[0];
+    j = 0;
+    for (i=0;i<size;i++) {
+        if (modeArr[0][j]==arr[i]) {    modeArr[1][j]++;
+        cout << " found " << modeArr[1][j];
+        }
+        if (modeArr[0][j]!=arr[i]) {    j++;
+                                        modeArr[1][j]++;
+                                        modeArr[0][j]=arr[i];
+        }
+    }
+    for (i=0;i<numUnique;i++) {
+        cout << modeArr[0][i] << " ";
+    }
+    cout << endl;
+    for (i=0;i<numUnique;i++) {
+        cout << modeArr[1][i] << " ";
+    }
+    cout << endl;
+    for (i=0;i<numUnique;i++) {
+        delete []modeArr[i];
+    }
+    delete []modeArr;
+}
 
 void findMode (int *arr, int size) {
     

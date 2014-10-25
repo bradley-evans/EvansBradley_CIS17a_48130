@@ -14,6 +14,7 @@
 #include "prob_3.h"
 #include "prob_4.h"
 #include "prob_5.h"
+#include "prob_6.h"
 using namespace std;	
 
 int main() 				
@@ -57,6 +58,7 @@ int main()
                                 break;
                         case '6':
                                 cout	<< endl;
+                                solution_6();
                                 localPause();
                                 break;
                         case '7':

@@ -15,11 +15,12 @@
 using namespace std;
 
 void solution_3() ;
-void takeIntArray(int* &intarray, int &size) ;
+void takeIntArray(int* &intarray, int &intcount) ;
 float findMedian (int *arr, int arrSize);
 float findMean(int *arr, int arrSize) ;
 void findMode (int *arr, int size) ;
 void sortArray (int *arr, int arrSize) ;
+void findMode2 (int *arr, int size);
 
 
 #endif	/* PROB_3_H */
