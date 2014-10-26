@@ -2,6 +2,15 @@
 
 using namespace std;
 
+Cmd::Noun parseNoun(std::string &noun)
+{
+    auto n = knownNouns.find(noun);
+    if ( n == knownNouns.end() ) {
+        return cmd::Noun::invalid;
+    }
+    return n->second;
+}
+
 void ask (Noun noun) 
 {
     switch (noun) {

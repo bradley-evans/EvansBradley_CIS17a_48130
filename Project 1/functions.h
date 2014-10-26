@@ -8,20 +8,20 @@
 #ifndef FUNCTIONS_H     // if not defined
 #define	FUNCTIONS_H     // then define
 
+// Function dependencies --
 #include <iostream>
 #include <string>
 #include <cstring>
-
 #include "classes.h"
 #include "verbs.h"
-#include "nouns.h"
 #include "classes.h"
 #include "cmdtree.h"
+using namespace std;
 
 void localPause ();
 void readInput (char* &command, const int MAXL, std::string &noun, std::string &verb);
 char verifyExit(char exitChoice);
-char validateInput (Verb verb, Noun noun);
+char validateInput (Cmd::Verb verb, Cmd::Noun noun);
 void initializeSuspect();
 void introduction();
 

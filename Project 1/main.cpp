@@ -27,14 +27,10 @@
 #include "cmdtree.h"        // takes in input and starts the parsing tree
 using namespace std;
 
-// FUNCTION DECLARATIONS
-        // go here
 
-/*
- * 
- */
     const int MAXL = 50;    // maximum character array length
 
+    
 int main() 
 {
     // Main Variables.
@@ -42,11 +38,11 @@ int main()
     char    *ptrcmd = command;      // character pointer to read user command
     string  noun;                   // user gives me a noun
     string  verb;                   // user gives me a verb
-    Noun    pNoun;                  // A parsed out noun, associated with an enum
-    Verb    pVerb;                  // A parsed out verb, associated with an enum
+    Cmd::Noun    pNoun;             // A parsed out noun, associated with an enum
+    Cmd::Verb    pVerb;             // A parsed out verb, associated with an enum
     char    control;                // Control / Command Character
     // Classes and Structures
-    Gameclock clock;        // tracks time, tick time down using clock.downtick(loss);
+    Gameclock clock;                // tracks time, tick time down using clock.downtick(loss);
     
     clock.initialize();
     initializeSuspect();

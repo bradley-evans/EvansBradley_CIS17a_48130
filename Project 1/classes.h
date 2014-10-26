@@ -44,5 +44,31 @@ public:
     int roll (int); // roll dice of (size)
 };
 
+struct Scoreboard { // a truth table to store truths as an array of structures
+    string ident;
+    bool state;
+    int num;
+};
+
+struct Cmd {
+    enum Noun {
+    // Interrogation subjects
+        name,                   // ask the subject his name
+        base,                   // where is the rebel base?
+        attack,                 // when will the attack be?
+        suspect,                // The person you're interrogating
+
+        invalid
+    };
+    enum Verb {
+        ask,        // ask a question
+        quit,       // quit the game
+        look,       // look at a thing
+
+        invalid     // verb was invalid           
+    };
+
+
+};
 #endif	/* CLASSES_H */
 

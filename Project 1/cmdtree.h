@@ -8,12 +8,11 @@
 #ifndef CMDTREE_H
 #define	CMDTREE_H
 
-#include <iostream>
-#include <fstream>
-#include <string>
+#include <cstdlib>      // for rand()
+#include <time.h>       // to seed random function
+#include <ctime>
 #include "functions.h"
-#include "classes.h"
-#include "nouns.h"
+using namespace std;
 
 void printLine(std::string filename, int line);
 void cmd_ask_name();

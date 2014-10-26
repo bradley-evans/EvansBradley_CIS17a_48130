@@ -33,23 +33,14 @@
 #include <iostream>
 #include <map>
 #include <string>
-
 #include "classes.h"
 #include "functions.h"
+#include "verbs.h"
 #include "cmdtree.h"
+using namespace std;
 
-enum class Noun
-{
-    // Interrogation subjects
-    name,                   // ask the subject his name
-    base,                   // where is the rebel base?
-    attack,                 // when will the attack be?
-    suspect,                // The person you're interrogating
-    
-    invalid
-};
 
-std::map < std::string, Noun > knownNouns = 
+std::map < std::string, Cmd::Noun > knownNouns = 
 {
     {   "name",         Noun::name          },
     {   "base",         Noun::base          },
@@ -58,17 +49,9 @@ std::map < std::string, Noun > knownNouns =
     
 };
  
-Noun parseNoun(std::string &noun)
-{
-    auto n = knownNouns.find(noun);
-    if ( n == knownNouns.end() ) {
-        return Noun::invalid;
-    }
-    return n->second;
-}
-
-void ask (Noun noun);
-void look (Noun noun);
+Noun parseNoun(std::string &noun);
+void ask (Cmd::Noun noun);
+void look (Cmd::Noun noun);
 
 #endif	/* NOUNS_H */
 

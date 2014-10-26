@@ -11,37 +11,27 @@
 #include <iostream>
 #include <map>
 #include <string>
-
-#include "nouns.h"
 #include "classes.h"
 #include "functions.h"
+#include "nouns.h"
+using namespace std;
+
 /*
  * See the nouns.h header for better documentation on what exactly this
  * is doing.
  */
 
-enum class Verb
-{
-    ask,        // ask a question
-    quit,       // quit the game
-    look,       // look at a thing
-    
-    invalid     // verb was invalid
-            
-};
-
-std::map < std::string, Verb > knownVerbs =
+std::map < std::string, Cmd::Verb > knownVerbs =
 {                                       // synonyms for:
-    {   "ask",      Verb::ask       },  // ask
-    {   "quit",     Verb::quit      },  // quit
-    {   "exit",     Verb::quit      },
-    {   "look",     Verb::look      },  // look
-    {   "examine",  Verb::look      }
+    {   "ask",      Cmd::Verb::ask       },  // ask
+    {   "quit",     Cmd::Verb::quit      },  // quit
+    {   "exit",     Cmd::Verb::quit      },
+    {   "look",     Cmd::Verb::look      },  // look
+    {   "examine",  Cmd::Verb::look      }
 };
 
 Verb parseVerb(const std::string &verb);
-
-int verbProc (Noun noun, Verb verb);
+int verbProc (Cmd::Noun noun, Cmd::Verb verb);
 
 #endif	/* VERBS_H */
 

@@ -1,11 +1,12 @@
 #include "verbs.h"
 using namespace std;
 
-Verb parseVerb(const string &verb)
+
+Cmd::Verb parseVerb(const string &verb)
 {
     auto n = knownVerbs.find(verb);
     if ( n == knownVerbs.end() ) {
-        return Verb::invalid;
+        return Cmd::Verb::invalid;
     }
 }
 
@@ -20,6 +21,3 @@ int verbProc (Noun noun, Verb verb) {
     }
     return 0;
 }
-#endif	/* VERBS_H */
-
-
