@@ -7,14 +7,14 @@
 
 #ifndef VERBS_H
 #define	VERBS_H
+
 #include <iostream>
 #include <map>
 #include <string>
+
+#include "nouns.h"
 #include "classes.h"
 #include "functions.h"
-#include "nouns.h"
-using namespace std;
-
 /*
  * See the nouns.h header for better documentation on what exactly this
  * is doing.
@@ -30,7 +30,7 @@ enum class Verb
             
 };
 
-map < string, Verb > knownVerbs =
+std::map < std::string, Verb > knownVerbs =
 {                                       // synonyms for:
     {   "ask",      Verb::ask       },  // ask
     {   "quit",     Verb::quit      },  // quit
@@ -39,24 +39,9 @@ map < string, Verb > knownVerbs =
     {   "examine",  Verb::look      }
 };
 
-Verb parseVerb(const string &verb)
-{
-    auto n = knownVerbs.find(verb);
-    if ( n == knownVerbs.end() ) {
-        return Verb::invalid;
-    }
-    ♣
-}
+Verb parseVerb(const std::string &verb);
 
-/*
- * Send the verb off to be paired with nouns.
- */
+int verbProc (Noun noun, Verb verb);
 
-void verbProc (Noun noun, Verb verb) {
-    switch (verb) {
-        case Verb::ask:     ask(noun);
-        case Verb::look:    look(noun);
-    }
-}
 #endif	/* VERBS_H */
 

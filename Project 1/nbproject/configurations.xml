@@ -17,7 +17,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>classes.cpp</itemPath>
+      <itemPath>cmdtree.cpp</itemPath>
+      <itemPath>functions.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>nouns.cpp</itemPath>
+      <itemPath>verbs.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -43,19 +48,30 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <commandLine>-std=c++11 -Wall -Wextra</commandLine>
         </ccTool>
       </compileType>
+      <item path="classes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="classes.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="cmdtree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="functions.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="functions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="nouns.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="nouns.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="suspect_posture.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="verbs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="verbs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -80,17 +96,27 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="classes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="classes.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="cmdtree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="functions.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="functions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="nouns.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="nouns.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="suspect_posture.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="verbs.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="verbs.h" ex="false" tool="3" flavor2="0">
       </item>
