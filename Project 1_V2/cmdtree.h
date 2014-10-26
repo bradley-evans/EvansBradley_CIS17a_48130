@@ -14,7 +14,7 @@
 #include "classes.h"
 using namespace std;
 
-void printLine(string filename, int line)
+void printLine(string filename, int line)       ///< Print a specific line from a given text filename. Allows me to list descriptions in a text file and print line 1 for a value 1 of the suspects attributes, etc.
 {
     char        descrip[11][500] = {0};
     char        *ch_arr = descrip[0];
@@ -42,7 +42,7 @@ void printLine(string filename, int line)
 // SYNTAX cmd_[noun]_[verb] ()
 
 // ask
-void cmd_ask_name() {       // ask name
+void cmd_ask_name() {       ///< Command: ask name
     Dice dice;
     int result;
     result = dice.roll(100);
@@ -60,7 +60,7 @@ void cmd_ask_name() {       // ask name
 }
         
 // look
-void cmd_look_suspect()     // look suspect
+void cmd_look_suspect()     ///< Command: look suspect
 {
     int         statePosture;
     string      descfile;

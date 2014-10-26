@@ -21,7 +21,7 @@ using namespace std;
  * to an integer for ease of handling.
  */
 
-enum class Noun
+enum class Noun             ///< Enumerated class which defines valid nouns.
 {
     // Interrogation subjects
     name,                   // ask the subject his name
@@ -48,7 +48,7 @@ enum class Noun
  *
  */
 
-map < string, Noun > knownNouns = 
+map < string, Noun > knownNouns =          ///< Map which defines valid inputs (distinct from actual valid nouns).
 {
     {   "name",         Noun::name          },
     {   "base",         Noun::base          },
@@ -57,7 +57,7 @@ map < string, Noun > knownNouns =
     
 };
  
-Noun parseNoun(string &noun)
+Noun parseNoun(string &noun)            ///< Parses nouns using ~magic~. Searches the map for a valid match to the string noun, and returns an enumerated value.
 {
     auto n = knownNouns.find(noun);
     if ( n == knownNouns.end() ) {

@@ -20,7 +20,7 @@ using namespace std;
  * is doing.
  */
 
-enum class Verb
+enum class Verb     ///< Enumerated class defines valid verbs.
 {
     ask,        // ask a question
     quit,       // quit the game
@@ -30,7 +30,7 @@ enum class Verb
             
 };
 
-map < string, Verb > knownVerbs =
+map < string, Verb > knownVerbs =       ///< Map defines valid verb inputs
 {                                       // synonyms for:
     {   "ask",      Verb::ask       },  // ask
     {   "quit",     Verb::quit      },  // quit
@@ -39,7 +39,7 @@ map < string, Verb > knownVerbs =
     {   "examine",  Verb::look      }
 };
 
-Verb parseVerb(const string &verb)
+Verb parseVerb(const string &verb)      ///< Parse verb by comparing it to a map, and returning 
 {
     auto n = knownVerbs.find(verb);
     if ( n == knownVerbs.end() ) {
@@ -52,7 +52,7 @@ Verb parseVerb(const string &verb)
  * Send the verb off to be paired with nouns.
  */
 
-void verbProc (Noun noun, Verb verb) {
+void verbProc (Noun noun, Verb verb) {          ///< Switch cases which determine how the verb will be paired with nouns.
     switch (verb) {
         case Verb::ask:     ask(noun);
         case Verb::look:    look(noun);

@@ -17,7 +17,7 @@
 #include "cmdtree.h"
 using namespace std;
 // ------------------------
-void localPause ()
+void localPause ()      ///< A local pause function to replace cstdlib's system(pause), which doesn't work for me for whatever reason.
 {
         cout << endl;
         cin.ignore();
@@ -26,7 +26,7 @@ void localPause ()
         cout << endl;
 }
 
-void readInput (char* &command, const int MAXL, string &noun, string &verb) // take in the user's command
+void readInput (char* &command, const int MAXL, string &noun, string &verb) ///< Accepts the user's input as a cstring and turns it into two std::strings, named noun and verb.
 {
     int     i = 0;      // iterator 1
     int     n = 0;      // iterator 2
@@ -70,7 +70,7 @@ void readInput (char* &command, const int MAXL, string &noun, string &verb) // t
 }
 
 
-char verifyExit(char exitChoice)
+char verifyExit(char exitChoice) ///< Verifies you Really Really want to exit.
 {
     bool loop = true;
     cout    << "\nAre you sure you want to quit? You will lose all progress! [Y/N]" << endl
@@ -87,7 +87,7 @@ char verifyExit(char exitChoice)
     return ('0');
 }
 
-char validateInput (Verb verb, Noun noun)
+char validateInput (Verb verb, Noun noun) ///< Input validation, which occurs *after* parsing.
 {
     char exitChoice = 'n';
     if (verb == Verb::invalid) {
@@ -102,7 +102,7 @@ char validateInput (Verb verb, Noun noun)
 }
 
 
-void initializeSuspect()
+void initializeSuspect() ///< Iniitalizes the suspect's statistics.
 {
     Dice dice;
     
@@ -118,10 +118,51 @@ void initializeSuspect()
     cout    << "Minimize: " << suspect.minimize
             << "Silence:  " << suspect.silence;
 }
-void introduction()
+void introduction() ///< Play an introduction.
 {
     cmd_look_suspect();
 }
 
+void zeroScores() {     ///< Zeroes out the truth tables, initializing them for a new game.
+    int i = 0;
+    for (i=0;i<15;i++) {
+        suspect.truthtold[i]=0;
+        suspect.liestold[i]=0;
+    }
+}
+
+void totalScores() {    ///< Show and record the high scores. Demonstrates array of structures funcitonality.3
+    int total=1;
+    int position;
+    int i=0;
+    for (i=0;i<15;i++) {
+        total = total + suspect.truthtold[i];
+        total = total - suspect.liestold[i];
+    }
+    i = 0;
+    do {
+        if (scores[i].score > total) {
+            i++;
+        } else if (scores[i].score < total ) {
+            position = i;
+            i=16;
+        }
+    } while (i<15);
+    if (position < 16) {
+        for (i=(position+1);i<10;i++) {
+            scores[i].score = scores[i-1].score;
+            scores[i].name = scores[i-1].score;
+        }
+        scores[position].score = total;
+        cout << "\nPlease enter your name: ";
+        cin >> scores[position].name;
+    }
+    cout << "High Scores" << endl;
+    for (i=0;i<10;i++) {
+        cout << scores[i].name << " " << scores[i].score << " | ";
+        if (i==5) { cout << endl; }
+    }
+    cout << endl;
+}
 #endif	/* FUNCTIONS_H */
 
