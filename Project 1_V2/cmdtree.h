@@ -14,14 +14,22 @@
 #include "classes.h"
 using namespace std;
 
-void printLine(string filename, int line)       ///< Print a specific line from a given text filename. Allows me to list descriptions in a text file and print line 1 for a value 1 of the suspects attributes, etc.
+/**
+ * Print a specific line from a given text filename. Allows me to list 
+ * descriptions in a text file and print line 1 for a value 1 of the suspects
+ * attributes, etc. If, for example, an attribute fear is defined from 1-100, I can
+ * print line 5 for a value from 50-59 to describe the suspect as he might look
+ * at a fear level from 50-59.
+ * A 2D array is also described here.
+ * @param filename Filename passed to the function which defines where the description is coming from.
+ * @param line Line number from the file to print.
+ */
+void printLine(string filename, int line)       
 {
-    char        descrip[11][500] = {0};
-    char        *ch_arr = descrip[0];
-    fstream     text;
-    int         y = 0;
-    
-    cout << "\nfile: " << filename << " line: " << line << endl;
+    char        descrip[11][500] = {0};     ///< 2D array that takes in the line.
+    char        *ch_arr = descrip[0];       ///< Pointer.
+    fstream     text;                       ///< Text coming in from the file.
+    int         y = 0;                      ///< Iterator.
     
     text.open(filename,ios::in);
     if (!text.is_open()) {         
@@ -39,10 +47,14 @@ void printLine(string filename, int line)       ///< Print a specific line from 
     cout    << " " << ch_arr << endl;
         
 }
+//////////////////////////////
 // SYNTAX cmd_[noun]_[verb] ()
+//////////////////////////////
 
-// ask
-void cmd_ask_name() {       ///< Command: ask name
+/**
+ * Command: ask name
+ */
+void cmd_ask_name() {     
     Dice dice;
     int result;
     result = dice.roll(100);
@@ -52,14 +64,18 @@ void cmd_ask_name() {       ///< Command: ask name
         result = dice.roll(100);
         if (result > (suspect.deception - suspect.exhaustion)) {
             cout << "He gives you his real name!" << endl;
+            suspect.truthtold[0]++;                    
         } else {
             cout << "He lies about his name." << endl;
+            suspect.liestold[0]++;
         }
     }
     suspect.exhaustion++;                
 }
         
-// look
+/**
+ * Command: look suspect
+ */
 void cmd_look_suspect()     ///< Command: look suspect
 {
     int         statePosture;

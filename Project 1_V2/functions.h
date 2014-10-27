@@ -16,8 +16,12 @@
 #include "classes.h"
 #include "cmdtree.h"
 using namespace std;
-// ------------------------
-void localPause ()      ///< A local pause function to replace cstdlib's system(pause), which doesn't work for me for whatever reason.
+
+/**
+ * A local pause function to replace cstdlib's system(pause), which doesn't work
+ * for me for whatever reason.
+ */
+void localPause ()      
 {
         cout << endl;
         cin.ignore();
@@ -26,7 +30,16 @@ void localPause ()      ///< A local pause function to replace cstdlib's system(
         cout << endl;
 }
 
-void readInput (char* &command, const int MAXL, string &noun, string &verb) ///< Accepts the user's input as a cstring and turns it into two std::strings, named noun and verb.
+/**
+ * Accepts the user's input as a cstring and turns it into two std::strings, 
+ * named noun and verb. Assumes the first word up until the first space is a
+ * verb, and the second word is a noun. All subsequent words are ignored.
+ * @param command The command input by the user.
+ * @param MAXL Global constant, max command length
+ * @param noun String output of the noun found in the command.
+ * @param verb String output of the verb found in the command.
+ */
+void readInput (char* &command, const int MAXL, string &noun, string &verb) 
 {
     int     i = 0;      // iterator 1
     int     n = 0;      // iterator 2
@@ -46,7 +59,6 @@ void readInput (char* &command, const int MAXL, string &noun, string &verb) ///<
     cout    << "\nYour command was: " << command << endl;
        
     // Parse the command into a noun or a verb.
-    
     do {
         cstrverb[i]=command[i];        
         i++;
@@ -69,9 +81,14 @@ void readInput (char* &command, const int MAXL, string &noun, string &verb) ///<
     verb = verbptr;
 }
 
-
-char verifyExit(char exitChoice) ///< Verifies you Really Really want to exit.
+/**
+ * Verifies that the user actually wants to exit.
+ * @param exitChoice
+ * @return A command character that tells the main function that it's OK to exit.
+ */
+char verifyExit() ///< Verifies you Really Really want to exit.
 {
+    char exitChoice;
     bool loop = true;
     cout    << "\nAre you sure you want to quit? You will lose all progress! [Y/N]" << endl
             << "> ";
@@ -87,13 +104,21 @@ char verifyExit(char exitChoice) ///< Verifies you Really Really want to exit.
     return ('0');
 }
 
-char validateInput (Verb verb, Noun noun) ///< Input validation, which occurs *after* parsing.
+/**
+ * After parsing, if the verb or noun was not found, then an enumerated value
+ * of 'invalid' is given. This function detects an invalid value and tells the
+ * user if one is encountered.
+ * @param verb Enumerated verb.
+ * @param noun Enumerated noun.
+ * @return Control character to tell the main function that it is okay to proceed
+ */
+char validateInput (Verb verb, Noun noun) 
 {
     char exitChoice = 'n';
     if (verb == Verb::invalid) {
         return('X');
     } else if (verb == Verb::quit) {
-        return(verifyExit(exitChoice));
+        return(verifyExit());
     }
     if (noun == Noun::invalid) {
         return('X');
@@ -101,8 +126,10 @@ char validateInput (Verb verb, Noun noun) ///< Input validation, which occurs *a
     return('0');
 }
 
-
-void initializeSuspect() ///< Iniitalizes the suspect's statistics.
+/**
+ * Initializes the suspect with randomly generated attributes.
+ */
+void initializeSuspect() 
 {
     Dice dice;
     
@@ -113,16 +140,20 @@ void initializeSuspect() ///< Iniitalizes the suspect's statistics.
     suspect.comply      = dice.roll(10);
     suspect.honest      = dice.roll(10);
     suspect.deception   = dice.roll(10);
-    
-    // debug
-    cout    << "Minimize: " << suspect.minimize
-            << "Silence:  " << suspect.silence;
 }
-void introduction() ///< Play an introduction.
+
+/**
+ * Plays an introduction.
+ */
+void introduction()
 {
     cmd_look_suspect();
 }
 
+/**
+ * Initializes a truth table held in the suspect_s structure to zero. This table
+ * will hold the user's "score," tracking how many truths or lies have been told.
+ */
 void zeroScores() {     ///< Zeroes out the truth tables, initializing them for a new game.
     int i = 0;
     for (i=0;i<15;i++) {
@@ -131,7 +162,10 @@ void zeroScores() {     ///< Zeroes out the truth tables, initializing them for 
     }
 }
 
-void totalScores() {    ///< Show and record the high scores. Demonstrates array of structures funcitonality.3
+/**
+ * Show and record the high scores. Demonstrates array of structures funcitonality.
+ */
+void totalScores() {   
     int total=1;
     int position;
     int i=0;

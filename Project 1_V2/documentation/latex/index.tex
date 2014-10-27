@@ -1,0 +1,20 @@
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+This game is meant to take place in a single room, with the player acting as interrogator questioning a terrorism suspect. The player will reveal different new \mbox{[}subjects\mbox{]} through interrogation, and based on how the questions are asked and how different coercion techniques are employed, the suspect will either tell the truth, lie, or not answer at all.
+
+The suspect is governed by statistics that are generated randomly before each session, and a general description of the suspect is given based on what each statistic reads.\hypertarget{index_known_issues}{}\section{Known Problems}\label{index_known_issues}
+This build does not have complete functionality. For one thing, the only command that works with any real reliability is \char`\"{}ask name,\char`\"{} and there are a few strange input errors related to my implementation of getline. This program is meant more as a proof of concept -- a skeleton upon which to build a more complex and detail-\/rich game.
+
+I attempted to follow conventions for header and external .cpp files, but when I began moving functions out of the header files and into proper .cpp files, the program ceased to compile. Documentation of the worst error was posted here on Stack\+Exchange\+:
+
+\href{http://stackoverflow.com/questions/26569177/compiler-error-enumerated-class-was-not-declared-in-this-scope?noredirect=1#comment41758610_26569177}{\tt http\+://stackoverflow.\+com/questions/26569177/compiler-\/error-\/enumerated-\/class-\/was-\/not-\/declared-\/in-\/this-\/scope?noredirect=1\#comment41758610\+\_\+26569177}
+
+Sometimes, when the command 'quit' is used, the game crashes rather than exits normally.\hypertarget{index_explain}{}\section{How it Works}\label{index_explain}
+1 -\/ User enters a command 2 -\/ Command is taken as a cstring and parsed out into two std\+::strings, assuming that the first word is a verb and the second is a noun. 3 -\/ The std\+::strings are compared against maps of nouns and verbs, and then converted into an associated enumerated value. 4 -\/ The enumerated values then drive switch statements which decide what output to give to the user. 5 -\/ Outcomes, statistics, the \char`\"{}truth table,\char`\"{} and other ingame conditions are modified by the choice, and then a new command is requested.\hypertarget{index_requirements}{}\section{Assignment Requirements}\label{index_requirements}
+\hypertarget{index_malloc}{}\subsection{Memory allocation}\label{index_malloc}
+An admittedly crude example of this can be found in the \hyperlink{class_dice}{Dice} class.\hypertarget{index_structs}{}\subsection{Functions with structures}\label{index_structs}
+See \char`\"{}classes.\+h\char`\"{} The diceroller used in this system includes functions with structures. The gameclock is initialized and iterated in this way as well.\hypertarget{index_arraystructs}{}\subsection{Pointers with arrays and arrays of structures, internally as well as externally.}\label{index_arraystructs}
+Commands in this game are taken in by character arrays and passed around by reference to other parts of the parsing process.
+
+An \char`\"{}array of structures\char`\"{} was implemented to record \char`\"{}high scores\char`\"{} in \hyperlink{functions_8h_source}{functions.\+h}, the total\+Scores function.
+
+A 2\+D array is implemented in print\+Line(); under cmdtree. 

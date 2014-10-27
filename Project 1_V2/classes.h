@@ -15,7 +15,10 @@
 #include "functions.h"
 using namespace std;
 
-struct Suspect_s {                      ///< Defines the suspect's statistics.     
+/**
+ * Define's suspect attributes.
+ */
+struct Suspect_s {                      
     // The likelihood the suspect will take a certain action.
     int     minimize,       ///< give minimum amount of cooperation, delay tactic
             silence,        ///< ignore interrogation
@@ -33,28 +36,51 @@ struct Suspect_s {                      ///< Defines the suspect's statistics.
     int     liestold[15];   ///< tracks specific lies told by suspect
 } suspect;
 
-class Gameclock {                       // Tracks in game time remaining
-    int timeleft;           ///< How much time is left ingame?
+/**
+ * Tracks in game time remaining
+ */
+class Gameclock {                       
+    int timeleft;           
 public:
-    void downtick(int);     ///< Decrements the clock by a given number (handy for a "wait" command).)
-    int currtime();         ///< Output the current time remaining.
-    void initialize();      ///< Initialize the clock to a random time.
+    void downtick(int);    
+    int currtime();         
+    void initialize();     
 };
+/**
+ * Tracks the number of turns left in game.
+ * @param loss How much to decrement the gameclock. Can be a negative number
+ */
 void Gameclock::downtick(int loss) {    
     timeleft = timeleft - loss;
 }
+/**
+ * Gives the current number of turns remaining.
+ * @return Turns remaining.
+ */
 int Gameclock::currtime() {             
     return(timeleft);
 }
+/**
+ * Initializes the game clock to a random number of turns.
+ */
 void Gameclock::initialize() {
     srand(time(NULL));
     timeleft = 20 + (rand()%20);
 }
 
-class Dice {                    ///< This class lets me roll a dice from anywhere in the function.
+/**
+ * This class lets me roll a dice from anywhere in the function.
+ */
+class Dice {                    
 public: 
-    int roll (int);             ///< roll dice of (size). Unnecessarily complex on purpose to demonstrate skill with memory allocation.
+    int roll (int);             ///< roll dice of (size).
 };
+/**
+ * The function within Dice that actually rolls the dice. A little overly complex
+ * in order to demonstrate memory allocation.
+ * @param size How large the "dice" is -- ie 6 is a 6 sided dice, 100 is a 100 sided dice.
+ * @return A random number between 1 and size.
+ */
 int Dice::roll (int size) {  
     int result;
     int *arr;
@@ -73,9 +99,12 @@ int Dice::roll (int size) {
     return(result);
 }
 
-struct Highscore {          ///< Show the ~high scores~, also demonstrates an array of structures.
-    int score;
-    string name;
+/**
+ * Tracks and displays high scores.
+ */
+struct Highscore {          
+    int score;      ///< Score as based off of the total from truthstold and liestold.
+    string name;    ///< Players name.
 } scores[10];
 
 #endif	/* CLASSES_H */
