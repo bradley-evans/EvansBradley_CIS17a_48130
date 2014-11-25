@@ -35,8 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Dice.o \
 	${OBJECTDIR}/Noun.o \
 	${OBJECTDIR}/ParseCmd.o \
+	${OBJECTDIR}/Suspect.o \
 	${OBJECTDIR}/Verb.o \
 	${OBJECTDIR}/cmdtree.o \
 	${OBJECTDIR}/main.o
@@ -70,6 +72,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/evans_bradley_csc17a_project_2.exe: $
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/evans_bradley_csc17a_project_2 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Dice.o: Dice.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../../../../../../../../cygwin/usr/include/boost -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dice.o Dice.cpp
+
 ${OBJECTDIR}/Noun.o: Noun.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -79,6 +86,11 @@ ${OBJECTDIR}/ParseCmd.o: ParseCmd.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I../../../../../../../../../cygwin/usr/include/boost -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParseCmd.o ParseCmd.cpp
+
+${OBJECTDIR}/Suspect.o: Suspect.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../../../../../../../../../cygwin/usr/include/boost -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Suspect.o Suspect.cpp
 
 ${OBJECTDIR}/Verb.o: Verb.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -4,8 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Dice.h</itemPath>
       <itemPath>Noun.h</itemPath>
       <itemPath>ParseCmd.h</itemPath>
+      <itemPath>Suspect.h</itemPath>
       <itemPath>Verb.h</itemPath>
       <itemPath>cmdtree.h</itemPath>
     </logicalFolder>
@@ -16,8 +18,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Dice.cpp</itemPath>
       <itemPath>Noun.cpp</itemPath>
       <itemPath>ParseCmd.cpp</itemPath>
+      <itemPath>Suspect.cpp</itemPath>
       <itemPath>Verb.cpp</itemPath>
       <itemPath>cmdtree.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -57,6 +61,10 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="Dice.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dice.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Noun.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Noun.h" ex="false" tool="3" flavor2="0">
@@ -64,6 +72,10 @@
       <item path="ParseCmd.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ParseCmd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Suspect.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Suspect.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Verb.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -96,6 +108,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Dice.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dice.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Noun.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Noun.h" ex="false" tool="3" flavor2="0">
@@ -103,6 +119,10 @@
       <item path="ParseCmd.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ParseCmd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Suspect.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Suspect.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Verb.cpp" ex="false" tool="1" flavor2="0">
       </item>
