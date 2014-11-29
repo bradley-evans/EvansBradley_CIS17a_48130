@@ -7,22 +7,11 @@
 
 #include "Dice.h"
 
-ParseDice::ParseDice() {
-    ParseDice::getDice();
+Dice::Dice(T1 in_numDice, T2 in_numSides) {
+    numDice = in_numDice;
+    numSides = in_numSides;
 }
-int ParseDice::getDice() {
-    
+Dice::Dice(int in_numDice, int in_numSide) {
+    numDice = in_numDice;
+    numSides = in_numSides;    
 }
-int ParseDice::rollDiceRaw(int dice,int sides) {
-    
-}
-int ParseDice::rollDiceMinResult(int dice, int sides, int min) {
-    
-}
-
-Dice::Dice() {
-}
-
-Dice::~Dice() {
-}
-

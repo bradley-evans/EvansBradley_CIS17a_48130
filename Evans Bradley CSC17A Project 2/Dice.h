@@ -21,17 +21,19 @@ enum class DiceTypes {
     invalid
 };
 
-template <class T> 
+template <class T1, class T2> 
 class Dice {
 private:
-    T Data;
+    T1 numDice;
+    T2 numSides;
 public:
-    Dice() : Data( T() ) {
-        
-    }
-    
-        
-        
+    Dice(T1,T2);
+};
+template <>
+class Dice <int,int> {
+private:
+    int numDice;
+    int numSides;
 };
 
 #endif	/* DICE_H */
