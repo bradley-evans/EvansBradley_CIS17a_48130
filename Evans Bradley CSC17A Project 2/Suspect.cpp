@@ -8,6 +8,10 @@
 #include "Suspect.h"
 
 Suspect::Suspect() {
+    srand(clock());
+    intelligence = (rand()%5);
+    if ((rand()%2)==)
+    
 }
 
 Suspect::Suspect(const Suspect& orig) {

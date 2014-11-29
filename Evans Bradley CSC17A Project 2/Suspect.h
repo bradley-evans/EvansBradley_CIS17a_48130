@@ -8,12 +8,21 @@
 #ifndef SUSPECT_H
 #define	SUSPECT_H
 
+#include <cstdlib>
+#include <time>
+
 class Suspect {
 public:
     Suspect();
-    Suspect(const Suspect& orig);
+    
     virtual ~Suspect();
 private:
+    // PRIMARY STATS //
+    int intelligence;
+    int deception;
+    int honesty;
+    int exhaustion; 
+    int trust;
 
 };
 

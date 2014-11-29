@@ -21,22 +21,17 @@ enum class DiceTypes {
     invalid
 };
 
+template <class T> 
 class Dice {
-public:
-    ParseDice();
-    int getDice();
 private:
-    string dicestr;
-    int numDice;
-    DiceType numSides;
-    int result;
-};
-
-template <class Dice> class DiceRoller {
+    T Data;
 public:
-    Dice();
-    virtual ~Dice();
-private:
+    Dice() : Data( T() ) {
+        
+    }
+    
+        
+        
 };
 
 #endif	/* DICE_H */
