@@ -11,6 +11,7 @@
 #include "ParseCmd.h"
 #include "Noun.h"
 #include "Verb.h"
+#include "Game.h"
 #include "cmdtree.h"
 using namespace std;
 
@@ -22,13 +23,14 @@ int main() {
     string cmd = "ask name";
     EnumNoun noun;
     EnumVerb verb;
-    
+    Game game;
+    game.showStats();   
     do {
         getinput(cmd);
         parse(cmd,noun,verb);
-        testVerb(verb);
-        testNoun(noun);
-        verbTree(verb,noun);
+        //testVerb(verb);       // TEST LINE
+        //testNoun(noun);       // TEST LINE
+        verbTree(verb,noun,game);
     } while (verb!=EnumVerb::quit);
     return 0;
 }

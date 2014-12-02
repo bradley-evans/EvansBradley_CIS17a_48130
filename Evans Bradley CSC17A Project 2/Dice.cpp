@@ -7,11 +7,26 @@
 
 #include "Dice.h"
 
-Dice::Dice(T1 in_numDice, T2 in_numSides) {
-    numDice = in_numDice;
-    numSides = in_numSides;
+void Dice<string>::parseDice() {
+    regex ex("^\\s*(?<numDice>[\\d{1,}]*)d(?<numSides>[\\d{1,}]*)\\s*$");
+    smatch what;
+    string num = "";
+    string sides = "";
+    regex_match(input,what,ex);
+    num = what["numDice"];
+    sides = what["numSides"];
+    numDice = atoi(num.c_str());
+    numSides = atoi(sides.c_str());
 }
-Dice::Dice(int in_numDice, int in_numSide) {
-    numDice = in_numDice;
-    numSides = in_numSides;    
+int Dice<string>::roll(string in) {
+    input = in;
+    parseDice();
+    srand((unsigned)time);
+    result = 0;
+    int diceroll = 0;
+    for (int i=0;i<numDice;i++) {
+        diceroll = ((rand() % numSides) + 1);
+        result = result + diceroll;
+    }
+    return result;
 }

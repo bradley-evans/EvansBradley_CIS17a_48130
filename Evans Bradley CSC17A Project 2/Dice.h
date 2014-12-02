@@ -10,6 +10,12 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+#include <boost\regex.hpp>
+using namespace boost;
 
 enum class DiceTypes {
     d4,
@@ -21,20 +27,46 @@ enum class DiceTypes {
     invalid
 };
 
-template <class T1, class T2> 
+template <class T> 
 class Dice {
 private:
-    T1 numDice;
-    T2 numSides;
-public:
-    Dice(T1,T2);
-};
-template <>
-class Dice <int,int> {
-private:
+    T input;
     int numDice;
     int numSides;
+    int result;
+public:
+    Dice(T in) {input = in;}    
+    int getnumDice() { return numDice; }
+    int getnumSides() { return numSides; }
+};
+template <>
+class Dice <string> {
+private:
+    string input;
+    int numDice;
+    int numSides;
+    int result;
+public:
+    Dice() {}
+    Dice(string in) {
+        input = in;
+    }   
+    int getnumDice() { return numDice; }
+    int getnumSides() { return numSides; }
+    void parseDice();
+    int roll(string);
+};
+template <>
+class Dice <DiceTypes> {
+    private:
+    DiceTypes input;
+    int numDice;
+    int numSides;
+    int result;
+public:
+    Dice(DiceTypes in) { input = in; }   
+    int getnumDice() { return numDice; }
+    int getnumSides() { return numSides; }
 };
 
-#endif	/* DICE_H */
-
+#endif

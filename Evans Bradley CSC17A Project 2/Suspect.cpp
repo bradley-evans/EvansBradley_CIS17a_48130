@@ -9,14 +9,39 @@
 
 Suspect::Suspect() {
     srand(clock());
-    intelligence = (rand()%5);
-    if ((rand()%2)==)
-    
+    trust = (rand()%5);
+    if ((rand()%2)==0) {
+        trust = 0 + (rand()%5);
+    } else {
+        trust = trust - (rand()%5);
+    }
+    intelligence = rand()%10;
+    deception = rand()%10;
+    loyalty = rand()%5;
+    if ((rand()%2)==0) {
+        loyalty = 0 + (rand()%5);
+    } else {
+        loyalty = loyalty - (rand()%5);
+    }
+    honesty = rand()%5;
+    if ((rand()%2)==0) {
+        honesty = 0 + (rand()%5);
+    } else {
+        honesty = honesty - (rand()%5);
+    }
+    exhaustion = rand()%5;
 }
-
-Suspect::Suspect(const Suspect& orig) {
+void Suspect::showStats() {
+    cout    << "================================" << endl
+            << "Suspect Statistics (Debug Mode):" << endl
+            << "Intelligence: " << intelligence << endl
+            << "Deception: " << deception << endl
+            << "Loyalty: " << loyalty << endl
+            << "Honesty: " << honesty << endl
+            << "Exhaustion: " << exhaustion << endl
+            << "Trust: " << trust << endl
+            << "================================" << endl;
 }
-
 Suspect::~Suspect() {
 }
 
