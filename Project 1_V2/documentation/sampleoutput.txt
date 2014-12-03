@@ -1,0 +1,78 @@
+
+ He fidgets against his restraints, sweating and panting, looking around fearfully.
+
+Time remaining: 39 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.            <--------------Asking was unsuccessful.
+
+Time remaining: 38 turns.      
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.
+
+Time remaining: 37 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.
+
+Time remaining: 36 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.
+
+Time remaining: 35 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.
+
+Time remaining: 34 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.
+
+Time remaining: 33 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+
+The suspect sits there quietly.
+
+Time remaining: 32 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+> ask name
+
+Your command was: ask name
+He gives you his real name!           <------------- Asking was successful.
+
+Time remaining: 31 turns.
+
+Please enter your command. Use a verb followed by a noun such as 'ask name.'
+>  

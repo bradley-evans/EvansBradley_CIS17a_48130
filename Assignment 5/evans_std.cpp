@@ -12,15 +12,15 @@ void displayMenu (char& choice)
 			<< "*****************************************" << endl;
 
 		cout	<< "Please select from the following options:" << endl
-                        << "[1] - Solution 15-1" << endl
-                        << "[2] - Solution 15-2" << endl
-                        << "[3] - Solution 15-3" << endl
-                        << "[4] - " << endl
-                        << "[5] - " << endl 
-                        << "[6] - " << endl                
-                        << "[7] - " << endl
+                        << "[1] - Solution 15-1, 15-2, 15-3" << endl
+                        << "[2] - Solution 15-4, 15-5" << endl
+                        << "[3] - Solution 16-2" << endl
+                        << "[4] - Solution 16-16" << endl
+                        << "[5] - Solution 16-5" << endl 
+                        << "[6] - Solution 16-3, 16-4" << endl /*               
+                        << "[7] - Solution ___" << endl 
                         << "[8] - " << endl
-                        << "[9] - " << endl                                            
+                        << "[9] - " << endl              */                              
                         << "[0] - Exit the program." << endl       
                         << endl;
 		cin	>> choice;
@@ -30,10 +30,10 @@ void displayMenu (char& choice)
 			|| choice == '3' 
 			|| choice == '4'        
 			|| choice == '5'        
-			|| choice == '6' 
-			|| choice == '7' 
+			|| choice == '6' /*
+			|| choice == '7'  
 			|| choice == '8'
-                        || choice == '9' 
+                        || choice == '9'   */
                         || choice == '0'        
                         )
 		{
@@ -71,11 +71,12 @@ bool replayFunc (char& localChoice)
 
 void localPause ()
 {
-        cout << endl;
-        cin.ignore();
-        cout << "Press [ENTER] to continue...";
-        cin.get();
-        cout << endl;
+    string buffer;
+    cout << endl;    
+    cout << "Press [ENTER] to continue...";
+    cin.ignore(1000,'\n');
+    getline(cin,buffer);
+    cout << endl;
 }
 
 bool regexValidate (string expr, string teststring) 

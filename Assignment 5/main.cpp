@@ -32,27 +32,27 @@ int main()
                 break;
             case '2':
                 cout	<< endl;
-                solution15_2();
+                solution15_4();
                 localPause();
                 break;
             case '3':
                 cout	<< endl;    
-                solution15_3();
+                solution16_2();
                 localPause();
                 break; 
             case '4':
                 cout	<< endl;
-                
+                solution16_16();
                 localPause();
                 break;
             case '5':
                 cout	<< endl;
-                
+                solution16_5();
                 localPause();
                 break;
             case '6':
                 cout	<< endl;
-                
+                solution16_3();
                 localPause();
                 break;
             case '7':

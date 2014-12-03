@@ -10,6 +10,7 @@
 // STDLIB Includes
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 // BOOST Includes
 #include <boost\regex.hpp>
@@ -18,9 +19,12 @@ using namespace boost;
 #include "evans_std.h"
 #include "classes.h"
 
-int solution15_1();
-void solution15_2();
-void solution15_3();
+void solution15_1();
+void solution15_4();
+void solution16_2();
+void solution16_16();
+void solution16_5();
+void solution16_3();
 
 #endif	/* SOLUTIONS_H */
 

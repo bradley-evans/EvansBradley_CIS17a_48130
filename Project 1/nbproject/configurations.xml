@@ -8,6 +8,7 @@
       <itemPath>cmdtree.h</itemPath>
       <itemPath>functions.h</itemPath>
       <itemPath>nouns.h</itemPath>
+      <itemPath>suspect.h</itemPath>
       <itemPath>verbs.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -22,6 +23,7 @@
       <itemPath>functions.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>nouns.cpp</itemPath>
+      <itemPath>suspect.cpp</itemPath>
       <itemPath>verbs.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -69,6 +71,10 @@
       </item>
       <item path="nouns.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="suspect.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="suspect.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="suspect_posture.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="verbs.cpp" ex="false" tool="1" flavor2="0">
@@ -113,6 +119,10 @@
       <item path="nouns.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="nouns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="suspect.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="suspect_posture.txt" ex="false" tool="3" flavor2="0">
       </item>

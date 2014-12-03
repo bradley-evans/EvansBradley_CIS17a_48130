@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/functions.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/nouns.o \
+	${OBJECTDIR}/suspect.o \
 	${OBJECTDIR}/verbs.o
 
 
@@ -91,6 +92,11 @@ ${OBJECTDIR}/nouns.o: nouns.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/nouns.o nouns.cpp
+
+${OBJECTDIR}/suspect.o: suspect.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/suspect.o suspect.cpp
 
 ${OBJECTDIR}/verbs.o: verbs.cpp 
 	${MKDIR} -p ${OBJECTDIR}
