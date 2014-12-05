@@ -11,6 +11,7 @@
       <itemPath>Suspect.h</itemPath>
       <itemPath>Verb.h</itemPath>
       <itemPath>cmdtree.h</itemPath>
+      <itemPath>gamestate.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -39,6 +40,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>savegame.bin</itemPath>
+    <itemPath>suspect_exh.txt</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -91,7 +94,13 @@
       </item>
       <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="gamestate.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="savegame.bin" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_exh.txt" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -142,7 +151,13 @@
       </item>
       <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="gamestate.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="savegame.bin" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_exh.txt" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

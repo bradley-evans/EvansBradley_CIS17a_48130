@@ -26,6 +26,8 @@ enum class EnumVerb {
     ask,
     look,
     quit,
+    save,
+    load,
     invalid
 };
 class Verb {

@@ -17,6 +17,9 @@ void Verb::parseVerb() {
     knownVerbs["ask"] = EnumVerb::ask;
     knownVerbs["quit"] = EnumVerb::quit;
     knownVerbs["exit"] = EnumVerb::quit;
+    knownVerbs["look"] = EnumVerb::look;
+    knownVerbs["save"] = EnumVerb::save;
+    knownVerbs["load"] = EnumVerb::load;
            
     auto n = knownVerbs.find(verbstr);        
     if (n == knownVerbs.end()) {

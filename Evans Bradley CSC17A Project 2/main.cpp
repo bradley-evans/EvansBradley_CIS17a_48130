@@ -24,12 +24,11 @@ int main() {
     EnumNoun noun;
     EnumVerb verb;
     Game game;
-    game.showStats();   
+    intro();
     do {
         getinput(cmd);
         parse(cmd,noun,verb);
-        //testVerb(verb);       // TEST LINE
-        //testNoun(noun);       // TEST LINE
+        debug(game);
         verbTree(verb,noun,game);
     } while (verb!=EnumVerb::quit);
     return 0;
@@ -45,11 +44,11 @@ void parse(string cmd,EnumNoun &noun,EnumVerb &verb) {
     verb = cmdverb.getVerbEnum();
     noun = cmdnoun.getNounEnum();            
     
-    if (command.isValid()) { 
-        cout << "Valid!" << endl; 
-        cout << "Verb:" << command.getVerb() << endl;
-        cout << "Noun:" << command.getNoun() << endl;
-    }
+    //if (command.isValid()) { 
+    //    cout << "Valid!" << endl; 
+    //    cout << "Verb:" << command.getVerb() << endl;
+    //    cout << "Noun:" << command.getNoun() << endl;
+    //}
     if (!command.isValid()) { cout << "Invalid!" << endl; }
 }
 
@@ -62,3 +61,4 @@ void getinput(string& cmd) {
         isValid = check.isValid();
     } while (!isValid);
 }
+

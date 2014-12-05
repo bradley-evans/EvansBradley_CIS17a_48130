@@ -6,7 +6,22 @@
  */
 
 #include "cmdtree.h"
-#include "Suspect.h"
+using namespace std;
+
+void intro () {
+    startClock();
+}
+
+/** Initializes the game clock.
+ */
+void startClock() {
+    srand(clock());
+    gamestate.clock = 15 + (rand()%15);
+}
+
+void debug(Game game) {
+    cout << gamestate.clock << " turns remaining!" << endl;
+}
 
 void testNoun(EnumNoun noun) {
     switch (noun) {
@@ -46,8 +61,9 @@ void printLine(string filename, int line)
     int         y = 0;                      ///< Iterator.
     
     text.open(filename,ios::in);
+    line++;
     if (!text.is_open()) {         
-        cout << "\<ERROR: Could not open " << filename << ".\>" << endl;
+        cout << "<ERROR: Could not open " << filename << ".>" << endl;
     } else {
         while (!text.eof())
         {
@@ -62,6 +78,36 @@ void printLine(string filename, int line)
         
 }
 
+void cmd_save_game (Game game) {
+    int *ptr;
+    int i = 0;
+    ptr = new int[gamestate.NUMOBJECTS];
+    // SAVE SUSPECT DATA
+    ptr[i] = game.getDec();
+    ptr[++i] = game.getExh();
+    ptr[++i] = game.getHon();
+    ptr[++i] = game.getInt();
+    ptr[++i] = game.getLoy();
+    ptr[++i] = game.getTru();
+    // SAVE GAMESTATE
+    ptr[++i] = gamestate.clock;
+    ptr[++i] = gamestate.toldAge;
+    ptr[++i] = gamestate.toldName;
+    
+    fstream save;
+    string filename = "savegame.bin";
+    save.open(filename,ios::out);
+    if (save.is_open()) {
+        for (i=0;i<gamestate.NUMOBJECTS;i++) {
+            
+        }
+    }
+}
+
+void cmd_load_game (Game &game) {
+    
+}
+
 void verbTree (EnumVerb verb, EnumNoun noun, Game& game) {
     switch (verb) {
         case EnumVerb::ask:
@@ -72,6 +118,10 @@ void verbTree (EnumVerb verb, EnumNoun noun, Game& game) {
         case EnumVerb::look:
             lookTree(noun,game);
             break;
+        case EnumVerb::save:
+            cmd_save_game(game);
+        case EnumVerb::load:
+            cmd_load_game(game);
         default:
             cout << "You're not really sure how to do that." << endl;
     }
@@ -80,7 +130,6 @@ void verbTree (EnumVerb verb, EnumNoun noun, Game& game) {
 void askTree (EnumNoun noun,Game& game) {
     switch (noun) {
         case EnumNoun::name: 
-            cout << "[ASK NAME] command detected!" << endl;
             cmd_ask_name(game);
             break;
         default: 
@@ -91,7 +140,7 @@ void askTree (EnumNoun noun,Game& game) {
 void lookTree (EnumNoun noun,Game& game) {
     switch (noun) {
         case EnumNoun::suspect:
-            cout << "[LOOK SUSPECT] command detected!" << endl;
+            cmd_look_suspect(game);
             break;
         default:
             cout << "Not much to see there." << endl;
@@ -102,12 +151,30 @@ void cmd_ask_name(Game& game) {
     Dice<string> dice;
     int result;
     int diff;
+    cout << "\"Let's try something simple,\" you ask. \"What is your name?\"" << endl;
     result = dice.roll("1d20");
     diff = (game.getDec()) - (game.getTru() + game.getHon() + game.getExh());
     if (diff > result) {
         cout << "The suspect sits there quietly." << endl;
+    } else if (gamestate.toldName == true) {
+        cout    << "\"I have already told you my name,\" he says, in his out-of-place [accent]. Hamad watches you intently." << endl
+                << "\"Why don't you just humor me. Tell me again,\" you insist." << endl
+                << "\"Hamad Anwar, as I just said,\" he repeats. \"Aren't you in a [hurry]?\" he says mockingly, \"Maybe you should try asking better [questions].\"" << endl;
     } else {
-        cout << "\"My name is Hamad Anwar,\" the man says softly. His voice has a faint British -- maybe South African? -- [accent]." << endl;       
+        cout << "\"My name is Hamad Anwar,\" the man says softly. His voice has a trace British -- maybe South African? -- [accent]." << endl;       
+        gamestate.toldName = true;
+        game.setExh( game.getExh() + 1 );
     }
-    game.setExh( game.getExh()+1 );
+}
+
+void cmd_look_suspect(Game& game)     ///< Command: look suspect
+{
+    int         statePosture;
+    string      descfile;
+    
+    // Pull exhaustion descriptor...
+    statePosture    = ( game.getExh()/5 );
+    descfile        = "suspect_exh.txt";
+    printLine(descfile,statePosture);
+    
 }
