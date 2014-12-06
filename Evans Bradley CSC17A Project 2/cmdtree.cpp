@@ -12,6 +12,10 @@ void debug(Game game) {
     game.showStats();
 }
 
+/** \brief Prints a specific line from a text file, used for dynamic descriptions of the suspect.
+ * Writes a specific line of a text file in to create descriptions that are based on a certain
+ * statistic of the suspect. In other words, dynamically generated descriptions based
+ * on changing conditions in the game. */
 void printLine(string filename, int line)       
 {
     char        descrip[11][500] = {0};     ///< 2D array that takes in the line.
@@ -42,15 +46,14 @@ void cmd_save_game (Game game) {
     int i = 0;
     ptr = new char[gamestate.NUMOBJECTS];
     // SAVE SUSPECT DATA
-    ptr[i] = game.getDec(); i++;
-            cout << "char: [" << ptr[i-1] << "]" << endl;
-    ptr[i] = game.getExh(); i++;
-    ptr[i] = game.getHon(); i++;
-    ptr[i] = game.getInt(); i++;
-    ptr[i] = game.getLoy(); i++;
-    ptr[i] = game.getTru(); i++;
+    ptr[i] = static_cast<char>(game.getDec()); i++;
+    ptr[i] = static_cast<char>(game.getExh()); i++;
+    ptr[i] = static_cast<char>(game.getHon()); i++;
+    ptr[i] = static_cast<char>(game.getInt()); i++;
+    ptr[i] = static_cast<char>(game.getLoy()); i++;
+    ptr[i] = static_cast<char>(game.getTru()); i++;
     // SAVE GAMESTATE
-    ptr[i] = gamestate.clock; i++;
+    ptr[i] = static_cast<char>(gamestate.clock); i++;
     ptr[i] = gamestate.toldAge; i++;
     ptr[i] = gamestate.toldName;
     cout << ptr;
@@ -59,7 +62,7 @@ void cmd_save_game (Game game) {
     string filename = "savegame.bin";
     save.open(filename,ios::out | ios::binary);
     if (save.is_open()) {
-        save.seekp(ios_base::beg);
+        save.seekp(ios::beg);
         save.write(ptr, gamestate.NUMOBJECTS);
         if (save) { cout << "Save successful." << endl; } else { cout << "Save error..." << endl; }
     } else if (!save.is_open()) {
@@ -78,7 +81,7 @@ void cmd_load_game (Game& game) {
     ifstream load(filename,ifstream::binary);
     load.open(filename,ios::in);
     if (load.is_open()) {
-        load.seekg(ios_base::beg);
+        load.seekg(ios::beg);
         load.read(ptr, gamestate.NUMOBJECTS);
         if (load) { cout << "Load successful." << endl; } else { cout << "Load error..." << "[" << load.gcount() << "]" << endl; }
     } else if (!load.is_open()) {
@@ -87,8 +90,6 @@ void cmd_load_game (Game& game) {
     
     // LOAD SUSPECT DATA
     game.setDec(ptr[i]);
-    
-        cout << "char: [" << ptr[i] << "]" << endl;
     game.setExh(ptr[++i]);
     game.setHon(ptr[++i]);
     game.setInt(ptr[++i]);

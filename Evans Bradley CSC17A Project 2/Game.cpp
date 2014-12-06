@@ -10,7 +10,7 @@
 
 Game::~Game() { }
 
-Game::showStats() {    
+void Game::showStats() {    
     cout    << "================================" << endl
             << "Suspect Statistics (Debug Mode):" << endl
             << "Intelligence: " << intelligence << endl
