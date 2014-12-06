@@ -8,6 +8,17 @@
 #include "Game.h"
 
 
-Game::~Game() {
+Game::~Game() { }
+
+Game::showStats() {    
+    cout    << "================================" << endl
+            << "Suspect Statistics (Debug Mode):" << endl
+            << "Intelligence: " << intelligence << endl
+            << "Deception: " << deception << endl
+            << "Loyalty: " << loyalty << endl
+            << "Honesty: " << honesty << endl
+            << "Exhaustion: " << exhaustion << endl
+            << "Trust: " << trust << endl
+            << "================================" << endl;
 }
 

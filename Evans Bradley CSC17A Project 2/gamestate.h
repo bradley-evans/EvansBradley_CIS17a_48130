@@ -12,11 +12,13 @@
 #include <cstdlib>
 
 struct Gamestate {
-    const int NUMOBJECTS = 3;
+    const int     NUMOBJECTS = 9;
     int     clock;
-    bool    toldName = false,
-            toldAge = false;
-} gamestate;
+    bool    toldName,
+            toldAge;
+};
+
+extern Gamestate gamestate;
 
 #endif	/* GAMESTATE_H */
 

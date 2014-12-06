@@ -8,10 +8,11 @@
 #ifndef GAME_H
 #define	GAME_H
 
+#include <iostream>
 #include "Suspect.h"
 using namespace std;
 
-/**Game constructor, derived from Suspect() class.
+/**Game class, derived from Suspect() class.
  * 
  * 
  */
@@ -20,7 +21,7 @@ public Suspect {
 public:
     Game() :        ///< Game constructor.
         Suspect() { }  
-        
+    void showStats();
     virtual ~Game();
 private:
 

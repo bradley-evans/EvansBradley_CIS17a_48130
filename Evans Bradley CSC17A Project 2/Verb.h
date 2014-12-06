@@ -28,6 +28,7 @@ enum class EnumVerb {
     quit,
     save,
     load,
+    show,
     invalid
 };
 class Verb {

@@ -10,6 +10,7 @@ void Noun::parseNoun() {
     map <string,EnumNoun> knownNouns;
     knownNouns["name"] = EnumNoun::name;
     knownNouns["suspect"] = EnumNoun::suspect;
+    knownNouns["debug"] = EnumNoun::debug;
            
     auto n = knownNouns.find(nounstr);        
     if (n == knownNouns.end()) { 

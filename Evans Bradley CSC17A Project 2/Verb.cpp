@@ -20,6 +20,7 @@ void Verb::parseVerb() {
     knownVerbs["look"] = EnumVerb::look;
     knownVerbs["save"] = EnumVerb::save;
     knownVerbs["load"] = EnumVerb::load;
+    knownVerbs["show"] = EnumVerb::show;
            
     auto n = knownVerbs.find(verbstr);        
     if (n == knownVerbs.end()) {

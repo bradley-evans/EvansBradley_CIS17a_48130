@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Suspect.o \
 	${OBJECTDIR}/Verb.o \
 	${OBJECTDIR}/cmdtree.o \
+	${OBJECTDIR}/gamestate.o \
 	${OBJECTDIR}/main.o
 
 
@@ -103,6 +104,11 @@ ${OBJECTDIR}/cmdtree.o: cmdtree.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cmdtree.o cmdtree.cpp
+
+${OBJECTDIR}/gamestate.o: gamestate.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/gamestate.o gamestate.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

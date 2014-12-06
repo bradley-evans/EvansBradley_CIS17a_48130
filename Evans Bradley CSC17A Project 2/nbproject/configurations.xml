@@ -27,6 +27,7 @@
       <itemPath>Suspect.cpp</itemPath>
       <itemPath>Verb.cpp</itemPath>
       <itemPath>cmdtree.cpp</itemPath>
+      <itemPath>gamestate.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -94,6 +95,8 @@
       </item>
       <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="gamestate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="gamestate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
@@ -150,6 +153,8 @@
       <item path="cmdtree.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="cmdtree.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gamestate.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="gamestate.h" ex="false" tool="3" flavor2="0">
       </item>

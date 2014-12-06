@@ -8,49 +8,8 @@
 #include "cmdtree.h"
 using namespace std;
 
-void intro () {
-    startClock();
-}
-
-/** Initializes the game clock.
- */
-void startClock() {
-    srand(clock());
-    gamestate.clock = 15 + (rand()%15);
-}
-
 void debug(Game game) {
-    cout << gamestate.clock << " turns remaining!" << endl;
-}
-
-void testNoun(EnumNoun noun) {
-    switch (noun) {
-        case EnumNoun::name: 
-            cout << "Successfully parsed [name]!" << endl;
-            break;
-        case EnumNoun::invalid:
-            cout << "Successfully parsed [invalid]!" << endl;
-            break;
-        default:
-            cout << "Made it to the switch, but couldn't parse out anything." << endl;
-            break;
-    }
-}
-
-void testVerb(EnumVerb verb) {
-    switch (verb) {
-        case EnumVerb::ask: 
-            cout << "Successfully parsed [ask]!" << endl;
-            break;
-        case EnumVerb::invalid:
-            cout << "Successfully parsed [invalid]!" << endl;
-            break;
-        case EnumVerb::quit:
-            break;
-        default:
-            cout << "Made it to the switch, but couldn't parse out anything." << endl;
-            break;
-    }
+    game.showStats();
 }
 
 void printLine(string filename, int line)       
@@ -78,34 +37,73 @@ void printLine(string filename, int line)
         
 }
 
-void cmd_save_game (Game game) {
-    int *ptr;
+void cmd_save_game (Game game) { 
+    char *ptr;
     int i = 0;
-    ptr = new int[gamestate.NUMOBJECTS];
+    ptr = new char[gamestate.NUMOBJECTS];
     // SAVE SUSPECT DATA
-    ptr[i] = game.getDec();
-    ptr[++i] = game.getExh();
-    ptr[++i] = game.getHon();
-    ptr[++i] = game.getInt();
-    ptr[++i] = game.getLoy();
-    ptr[++i] = game.getTru();
+    ptr[i] = game.getDec(); i++;
+            cout << "char: [" << ptr[i-1] << "]" << endl;
+    ptr[i] = game.getExh(); i++;
+    ptr[i] = game.getHon(); i++;
+    ptr[i] = game.getInt(); i++;
+    ptr[i] = game.getLoy(); i++;
+    ptr[i] = game.getTru(); i++;
     // SAVE GAMESTATE
-    ptr[++i] = gamestate.clock;
-    ptr[++i] = gamestate.toldAge;
-    ptr[++i] = gamestate.toldName;
+    ptr[i] = gamestate.clock; i++;
+    ptr[i] = gamestate.toldAge; i++;
+    ptr[i] = gamestate.toldName;
+    cout << ptr;
     
-    fstream save;
+    ofstream save;
     string filename = "savegame.bin";
-    save.open(filename,ios::out);
+    save.open(filename,ios::out | ios::binary);
     if (save.is_open()) {
-        for (i=0;i<gamestate.NUMOBJECTS;i++) {
-            
-        }
+        save.seekp(ios_base::beg);
+        save.write(ptr, gamestate.NUMOBJECTS);
+        if (save) { cout << "Save successful." << endl; } else { cout << "Save error..." << endl; }
+    } else if (!save.is_open()) {
+        cout << "Failed to save to file savegame.bin" << endl;
     }
+    save.close();
+    delete[] ptr;
 }
 
-void cmd_load_game (Game &game) {
+void cmd_load_game (Game& game) {
+    char *ptr;
+    int i = 0;
+    ptr = new char[gamestate.NUMOBJECTS];
     
+    string filename = "savegame.bin";
+    ifstream load(filename,ifstream::binary);
+    load.open(filename,ios::in);
+    if (load.is_open()) {
+        load.seekg(ios_base::beg);
+        load.read(ptr, gamestate.NUMOBJECTS);
+        if (load) { cout << "Load successful." << endl; } else { cout << "Load error..." << "[" << load.gcount() << "]" << endl; }
+    } else if (!load.is_open()) {
+        cout << "Failed to load from file savegame.bin" << endl;
+    }
+    
+    // LOAD SUSPECT DATA
+    game.setDec(ptr[i]);
+    
+        cout << "char: [" << ptr[i] << "]" << endl;
+    game.setExh(ptr[++i]);
+    game.setHon(ptr[++i]);
+    game.setInt(ptr[++i]);
+    game.setLoy(ptr[++i]);
+    game.setTru(ptr[++i]);
+
+    // SAVE GAMESTATE
+    gamestate.clock = ptr[++i];
+    gamestate.toldAge = ptr[++i];
+    gamestate.toldName = ptr[++i];
+    
+    
+    load.close();
+    delete[] ptr;
+
 }
 
 void verbTree (EnumVerb verb, EnumNoun noun, Game& game) {
@@ -120,8 +118,13 @@ void verbTree (EnumVerb verb, EnumNoun noun, Game& game) {
             break;
         case EnumVerb::save:
             cmd_save_game(game);
+            break;
         case EnumVerb::load:
             cmd_load_game(game);
+            break;
+        case EnumVerb::show:
+            if (noun == EnumNoun::debug) { debug(game); }
+            break;
         default:
             cout << "You're not really sure how to do that." << endl;
     }

@@ -27,6 +27,7 @@ enum class EnumNoun {
         base,
         attack,
         suspect,      
+        debug,
         invalid
     };
 /** \brief Parses out the noun given by the user

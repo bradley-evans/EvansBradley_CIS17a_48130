@@ -12,6 +12,7 @@
 #include "Noun.h"
 #include "Verb.h"
 #include "Game.h"
+#include "gamestate.h"
 #include "cmdtree.h"
 using namespace std;
 
@@ -24,11 +25,10 @@ int main() {
     EnumNoun noun;
     EnumVerb verb;
     Game game;
-    intro();
+    debug(game);
     do {
         getinput(cmd);
         parse(cmd,noun,verb);
-        debug(game);
         verbTree(verb,noun,game);
     } while (verb!=EnumVerb::quit);
     return 0;
@@ -43,12 +43,6 @@ void parse(string cmd,EnumNoun &noun,EnumVerb &verb) {
     cmdnoun.parseNoun();
     verb = cmdverb.getVerbEnum();
     noun = cmdnoun.getNounEnum();            
-    
-    //if (command.isValid()) { 
-    //    cout << "Valid!" << endl; 
-    //    cout << "Verb:" << command.getVerb() << endl;
-    //    cout << "Noun:" << command.getNoun() << endl;
-    //}
     if (!command.isValid()) { cout << "Invalid!" << endl; }
 }
 

@@ -13,10 +13,9 @@ using namespace std;
 #include "Noun.h"
 #include "Verb.h"
 #include "Dice.h"
-#include "gamestate.h"
 #include "Game.h"
+#include "gamestate.h"
 
-void intro();
 void debug(Game);
 void testNoun(EnumNoun);
 void testVerb(EnumVerb);
@@ -28,8 +27,8 @@ void lookTree(EnumNoun,Game&);
 // COMMANDS
 void cmd_ask_name(Game&);
 void cmd_look_suspect(Game&);
-void cmd_save_game(Game);
-void cmd_load_game(Game&);
+//void cmd_save_game(Game);
+//void cmd_load_game(Game&);
 
 #endif	/* CMDTREE_H */
 
