@@ -45,6 +45,8 @@ void cmd_save_game (Game game) {
     char *ptr;
     int i = 0;
     ptr = new char[gamestate.NUMOBJECTS];
+   
+    /*
     // SAVE SUSPECT DATA
     ptr[i] = static_cast<char>(game.getDec()); i++;
     ptr[i] = static_cast<char>(game.getExh()); i++;
@@ -57,6 +59,9 @@ void cmd_save_game (Game game) {
     ptr[i] = gamestate.toldAge; i++;
     ptr[i] = gamestate.toldName;
     cout << ptr;
+    */
+    
+    ptr[0] = 'f';
     
     ofstream save;
     string filename = "savegame.bin";
@@ -88,6 +93,9 @@ void cmd_load_game (Game& game) {
         cout << "Failed to load from file savegame.bin" << endl;
     }
     
+    if (ptr[0]=='f') { cout << "Read 'f'!"; } else { cout << "Fail. Contents of ptr: [" << ptr << "]" << endl; }
+    
+    /*
     // LOAD SUSPECT DATA
     game.setDec(ptr[i]);
     game.setExh(ptr[++i]);
@@ -100,7 +108,7 @@ void cmd_load_game (Game& game) {
     gamestate.clock = ptr[++i];
     gamestate.toldAge = ptr[++i];
     gamestate.toldName = ptr[++i];
-    
+    */
     
     load.close();
     delete[] ptr;
