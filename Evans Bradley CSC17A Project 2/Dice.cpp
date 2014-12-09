@@ -21,7 +21,7 @@ void Dice<string>::parseDice() {
 int Dice<string>::roll(string in) {
     input = in;
     parseDice();
-    srand((unsigned)time);
+    srand(time(NULL));
     result = 0;
     int diceroll = 0;
     for (int i=0;i<numDice;i++) {

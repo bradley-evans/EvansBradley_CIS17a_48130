@@ -29,6 +29,7 @@ enum class EnumVerb {
     save,
     load,
     show,
+    hit,
     invalid
 };
 class Verb {

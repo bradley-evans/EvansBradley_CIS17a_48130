@@ -43,6 +43,8 @@
     </logicalFolder>
     <itemPath>savegame.bin</itemPath>
     <itemPath>suspect_exh.txt</itemPath>
+    <itemPath>suspect_int.txt</itemPath>
+    <itemPath>suspect_pain.txt</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -105,6 +107,10 @@
       </item>
       <item path="suspect_exh.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="suspect_int.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_pain.txt" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -163,6 +169,10 @@
       <item path="savegame.bin" ex="false" tool="3" flavor2="0">
       </item>
       <item path="suspect_exh.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_int.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="suspect_pain.txt" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

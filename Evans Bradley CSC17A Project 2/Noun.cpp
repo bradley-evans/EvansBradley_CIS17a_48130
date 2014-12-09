@@ -11,6 +11,8 @@ void Noun::parseNoun() {
     knownNouns["name"] = EnumNoun::name;
     knownNouns["suspect"] = EnumNoun::suspect;
     knownNouns["debug"] = EnumNoun::debug;
+    knownNouns["capture"] = EnumNoun::capture;
+    knownNouns["accent"] = EnumNoun::accent;
            
     auto n = knownNouns.find(nounstr);        
     if (n == knownNouns.end()) { 

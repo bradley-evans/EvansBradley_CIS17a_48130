@@ -8,7 +8,7 @@
 #include "Suspect.h"
 
 Suspect::Suspect() {
-    srand(clock());
+    srand(time(NULL));
     trust = (rand()%5);
     if ((rand()%2)==0) {
         trust = 0 + (rand()%5);

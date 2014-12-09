@@ -11,14 +11,27 @@
 #include <ctime>
 #include <cstdlib>
 
+/** \brief Stores the state of different game conditions
+ * Stores game states such as if an action has been taken, how much time
+ * is left, if a question was asked, and so on. */
 struct Gamestate {
-    const int     NUMOBJECTS = 9;
+    const int     NUMOBJECTS = 15;
     int     clock;
-    bool    toldName,
-            toldAge;
+    int     pain = 0;
+    bool    toldName = false,
+            toldAge = false,
+            gaveExtension = false,
+            truthCapture = false,
+            liedCapture = false,
+            truthAccent = false,
+            liedAccent = false
+    ;
+    
 };
 
 extern Gamestate gamestate;
+
+void startClock();
 
 #endif	/* GAMESTATE_H */
 

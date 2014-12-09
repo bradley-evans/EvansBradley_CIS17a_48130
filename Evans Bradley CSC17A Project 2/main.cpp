@@ -20,22 +20,24 @@ void parse(string,EnumNoun&,EnumVerb&); ///< Function which runs different parsi
 void getinput(string&);                 ///< Takes the user's input and ensures that it is valid.
 
 int main() {
-
-    string cmd = "ask name";
+    string cmd;
     EnumNoun noun;
     EnumVerb verb;
     Game game;
-    debug(game);
+    intro(game);
     do {
         getinput(cmd);
         parse(cmd,noun,verb);
         verbTree(verb,noun,game);
+        if (gamestate.clock == 0) { timeout(game,verb); }
+        if (gamestate.pain > 5) { game.setTru(0); } 
     } while (verb!=EnumVerb::quit);
+    cmd_save_game(game);
     return 0;
 }
-
-void parse(string cmd,EnumNoun &noun,EnumVerb &verb) {
-    
+/** \brief Sequence of commands which parses out commands.
+ *  */
+void parse(string cmd,EnumNoun &noun,EnumVerb &verb) { 
     ParseCmd command(cmd);
     Verb cmdverb(command.getVerb());
     cmdverb.parseVerb();
@@ -46,6 +48,8 @@ void parse(string cmd,EnumNoun &noun,EnumVerb &verb) {
     if (!command.isValid()) { cout << "Invalid!" << endl; }
 }
 
+/** \brief Take user input and validate it.
+ *  */
 void getinput(string& cmd) {
     bool isValid;
     do {
