@@ -43,8 +43,7 @@ class Prob3TableInherited:public Prob3Table<T>
 };
 template <class T>
 Prob3TableInherited<T>::Prob3TableInherited(int a[][6], int b, int c):Prob3Table<T>(a,b,c) {
-    int val = (a+1)*(b+5);
-    augTable=new int[val];    
+    augTable=new int[(a+1)*(b+5)];    
 }
 
 #endif	/* PROB3TABLE_H */

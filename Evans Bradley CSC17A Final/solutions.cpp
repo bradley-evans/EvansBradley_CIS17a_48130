@@ -1,4 +1,5 @@
 #include "solutions.h"
+#include "Prob3Table.h"
 
 void driver1()  {
 char n=5;
@@ -7,15 +8,14 @@ char n=5;
 	Prob1Random a(n,rndseq);
         unsigned seed=time(0);
         srand(seed);
-	for(int i=1;i<=ntimes;i++)
-	{       
+	for(int i=1;i<=ntimes;i++) {       
 		a.randFromSet(rand()%n);
 	}
 	int *x=a.getFreq();
 	const char *y=a.getSet();
 	for(int i=0;i<n;i++)
 	{
-		cout<<int(y[i])<<" occured "<<x[i]<<" times"<<endl;
+            cout << int(y[i]) << " occurred " << x[i] << " times" << endl;
 	}
 	cout<<"The total number of random numbers is "<<a.getNumRand()<<endl;
 
@@ -55,7 +55,7 @@ void driver2() {
 }
 
 void driver3() {
-        cout<<"Entering problem number 3"<<endl;
+    cout<< "Beginning solution for Problem 3 ... " << endl;
     int rows=5;
     int cols=6;
     int array[5][6]={   100,101,102,103,104,105,
@@ -65,10 +65,8 @@ void driver3() {
                         124,125,126,127,128,129 };
     Prob3TableInherited<int> tab(array,rows,cols);
     const int *naugT=tab.getTable();
-    for(int i=0;i<rows;i++)
-    {
-            for(int j=0;j<cols;j++)
-            {
+    for(int i=0;i<rows;i++) {
+            for(int j=0;j<cols;j++) {
                     cout<<naugT[i*cols+j]<<" ";
             }
             cout<<endl;
