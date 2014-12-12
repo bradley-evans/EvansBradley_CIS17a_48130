@@ -25,6 +25,7 @@ void Verb::parseVerb() {
     knownVerbs["punch"] = EnumVerb::hit;
     knownVerbs["kick"] = EnumVerb::hit;
     knownVerbs["strike"] = EnumVerb::hit;
+    knownVerbs["chokehold"] = EnumVerb::hit;
            
     auto n = knownVerbs.find(verbstr);        
     if (n == knownVerbs.end()) {

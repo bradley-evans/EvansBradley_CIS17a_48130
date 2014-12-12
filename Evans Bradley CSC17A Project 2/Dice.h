@@ -26,7 +26,8 @@ enum class DiceTypes {
     passfail,
     invalid
 };
-
+/** \brief Template class which manages dice rolls.
+ *  */
 template <class T> 
 class Dice {
 private:
@@ -39,6 +40,8 @@ public:
     int getnumDice() { return numDice; }
     int getnumSides() { return numSides; }
 };
+/** \brief Template class which manages dice rolls where the input is a string. Utilizes regex.
+ *  */
 template <>
 class Dice <string> {
 private:
@@ -56,6 +59,8 @@ public:
     void parseDice();
     int roll(string);
 };
+/** \brief Template class which manages dice rolls. Utilizes an enumerated data type for input.
+ *  */
 template <>
 class Dice <DiceTypes> {
     private:

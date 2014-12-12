@@ -15,6 +15,8 @@ using namespace std;
 using namespace boost;
 #include "Noun.h"
 
+/** \brief Accepts a string as input for its constructor, parses the string into two seperate strings for a noun and verb, and sends these outputs to classes Noun and Verb.
+ *  */
 class ParseCmd {
 public:
     ParseCmd(string);

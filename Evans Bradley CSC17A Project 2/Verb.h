@@ -32,6 +32,8 @@ enum class EnumVerb {
     hit,
     invalid
 };
+/** \brief Parses out the verb given by the user and converts it into an enumerated value.
+ *  */
 class Verb {
 private:
     string verbstr;             ///< The verb found by the parser.
